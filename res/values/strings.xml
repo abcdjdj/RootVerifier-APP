@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Root Verifier</string>
+    <string name="action_settings">Exit</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="Check">Check</string>
+    <string name="Status">SUPERUSER: NOT YET CHECKED</string>
+    <string name="Welcome">Welcome!</string>
+    <string name="Description">To verify root access, please click on the Check button.</string>
+
+</resources>
