@@ -34,9 +34,9 @@
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="78dp"
-        android:textColor="@android:color/white"
         android:text="@string/Description"
-        android:textSize="30.00dp" />
+        android:textColor="@android:color/white"
+        android:textSize="26.00dp" />
 
     <Button
         android:id="@+id/button1"
@@ -51,21 +51,10 @@
         android:textSize="35.00dp" />
 
     <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="82dp"
-        android:text="@string/Status"
-        android:textColor="@android:color/white"
-        android:textSize="25.00dp" />
-
-    <TextView
         android:id="@+id/busyboxid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/status"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="34dp"
         android:textColor="@android:color/white"
@@ -78,8 +67,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/busyboxid"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="33dp"
         android:text="DEVICE:- "
+        android:textColor="@android:color/white"
+        android:textSize="25.00dp" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="69dp"
+        android:text="@string/Status"
         android:textColor="@android:color/white"
         android:textSize="25.00dp" />
 
