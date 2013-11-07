@@ -26,6 +26,16 @@
         android:text="@string/Description" />
 
     <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:text="@string/Status"
+        android:textColor="@android:color/white" />
+
+    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,33 +58,21 @@
         android:textColor="@android:color/white" />
 
     <TextView
-        android:id="@+id/busyboxid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/status"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
-        android:text="BUSYBOX : NOT YET CHECKED"
-        android:textColor="@android:color/white" />
-
-    <TextView
         android:id="@+id/devicemodel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/busyboxid"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"
         android:text="DEVICE:- "
         android:textColor="@android:color/white" />
 
     <TextView
-        android:id="@+id/status"
+        android:id="@+id/busyboxid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
+        android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
-        android:text="@string/Status"
+        android:text="BUSYBOX : NOT YET CHECKED"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>

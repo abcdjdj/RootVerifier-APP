@@ -16,7 +16,7 @@
     tools:ignore="HardcodedText" >
 
     <TextView
-        android:id="@+id/status"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button1"
@@ -30,7 +30,7 @@
         android:id="@+id/busyboxid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/status"
+        android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="93dp"
         android:text="BUSYBOX : NOT YET CHECKED"
