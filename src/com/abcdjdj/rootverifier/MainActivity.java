@@ -214,5 +214,16 @@ public class MainActivity extends Activity
 
         return ans;
     }
+    
+    @Override
+	public void onDestroy()
+	{
+		super.onDestroy();
+		
+		if(dialog!=null)
+		{
+			dialog.dismiss();
+		}
+	}
 
 }

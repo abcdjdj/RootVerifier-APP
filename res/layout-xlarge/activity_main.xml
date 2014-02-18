@@ -23,6 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="118dp"
         android:text="@string/Status"
+        android:freezesText="true"
         android:textColor="@android:color/white"
         android:textSize="43.00dp" />
 
@@ -34,6 +35,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="93dp"
         android:text="BUSYBOX : NOT YET CHECKED"
+        android:freezesText="true"
         android:textColor="@android:color/white"
         android:textSize="43.00dp" />
 
