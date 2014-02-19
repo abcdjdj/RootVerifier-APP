@@ -23,6 +23,7 @@ import java.io.File;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
@@ -88,6 +89,10 @@ public class MainActivity extends Activity
 
             case R.id.rate:
             rateOnPS();            
+            break;
+            
+            case R.id.about:
+            about_app();
             break;
 
             default:
@@ -225,5 +230,20 @@ public class MainActivity extends Activity
 			dialog.dismiss();
 		}
 	}
+    
+    private void about_app()
+    {
+    	String msg="Root Verifier is a free software: you can redistribute it and/or modify " +
+    			"it under the terms of the GNU General Public License as published by " +
+    			"the Free Software Foundation, either version 2 of the License, or " +
+    			"(at your option) any later version.\n\nGithub - https://github.com/abcdjdj/RootVerifier-APP\n\n" + 
+    			"Credits:-\n-->SArnab©®@XDA\n-->Androlover98@XDA\n-->android1999@XDA\n-->Abhinav2@XDA\n-->ZANKRUT.DOSHI@XDA";
+    	
+    	Builder alert = new AlertDialog.Builder(this);
+    	alert.setTitle("About the app");
+    	alert.setMessage(msg);
+    	alert.setPositiveButton("OK",null);
+    	alert.show();  
+    }
 
 }

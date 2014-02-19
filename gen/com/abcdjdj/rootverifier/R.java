@@ -25,10 +25,11 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
+        public static final int about=0x7f080008;
         public static final int busyboxid=0x7f080003;
         public static final int button1=0x7f080002;
         public static final int devicemodel=0x7f080006;
-        public static final int exit=0x7f080008;
+        public static final int exit=0x7f080009;
         public static final int rate=0x7f080007;
         public static final int status=0x7f080004;
         public static final int su_app=0x7f080005;
@@ -46,6 +47,7 @@ public final class R {
         public static final int Description=0x7f050006;
         public static final int Status=0x7f050004;
         public static final int Welcome=0x7f050005;
+        public static final int about=0x7f050008;
         public static final int app_name=0x7f050000;
         public static final int exit=0x7f050001;
         public static final int hello_world=0x7f050002;
