@@ -47,16 +47,6 @@
         android:textColor="@android:color/white"
         android:text="BUSYBOX : NOT YET CHECKED" />
 
-    <TextView
-        android:id="@+id/devicemodel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/busyboxid"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:text="DEVICE:- "
-        android:textColor="@android:color/white" />
-
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
@@ -77,6 +67,27 @@
         android:layout_marginTop="30dp"
         android:text="@string/Welcome"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/devicemodel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/su_app"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="DEVICE:- "
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/su_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/busyboxid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:text="SUPERUSER APP : NOT YET CHECKED"
+        android:freezesText="true"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>

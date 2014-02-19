@@ -26,217 +26,286 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 
 import android.app.ProgressDialog;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CheckRoot extends Thread 
+public class CheckRoot extends Thread
 {
-    static MainActivity activity;
-    private static TextView txtview;
-    private static CharSequence msg,msg2;
-    private static ProgressDialog dialog;
-    
+	static MainActivity activity;
+	private static TextView txtview;
+	private static CharSequence msg, msg2;
+	private static TextView su_app;
+	private static ProgressDialog dialog;
 
-    @Override
-    public void run()
-    {
-        checkRoot();
-        busybox();
+	@Override
+	public void run()
+	{
+		checkRoot();
+		busybox();
+		su_app();
 
-        dialog.dismiss();
-        showToast("Checking complete.");
+		dialog.dismiss();
+		showToast("Checking complete.");
 
-    }
+	}
 
-    public static void checkRoot()
-    {
-        TextView root = (TextView) activity.findViewById(R.id.status);
+	public static void checkRoot()
+	{
+		TextView root = (TextView) activity.findViewById(R.id.status);
 
-        if (suAvailable())// Checks if su binary is available
-        {
+		if (suAvailable())// Checks if su binary is available
+		{
 
-            try 
-            {
+			try
+			{
 
-                Process process = Runtime.getRuntime().exec("su");
-                OutputStream out = process.getOutputStream();
+				Process process = Runtime.getRuntime().exec("su");
+				OutputStream out = process.getOutputStream();
 
-                // CREATING A DUMMY FILE in /system called abc.txt
-                out.write("mount -o remount rw /system/\n".getBytes());
-                out.write("cd system\n".getBytes());
-                out.write("echo \"ABC\" > abc.txt\n".getBytes());
-                out.write("exit\n".getBytes());
-                out.flush();
-                out.close();
-                process.waitFor();
+				// CREATING A DUMMY FILE in /system called abc.txt
+				out.write("mount -o remount rw /system/\n".getBytes());
+				out.write("cd system\n".getBytes());
+				out.write("echo \"ABC\" > abc.txt\n".getBytes());
+				out.write("exit\n".getBytes());
+				out.flush();
+				out.close();
+				process.waitFor();
 
-                if (checkFile())// Checks if the file has been successfully created
-                {
-                    setText(root, "DEVICE IS ROOTED");
+				if (checkFile())// Checks if the file has been successfully
+								// created
+				{
+					setText(root, "DEVICE IS ROOTED");
 
-                }
-                else 
-                {
+				} else
+				{
 
-                    setText(root,"ROOT PERMISSION NOT GRANTED OR SUPERUSER APP MISSING");
+					setText(root,
+							"ROOT PERMISSION NOT GRANTED OR SUPERUSER APP MISSING");
 
-                }
+				}
 
-                process = Runtime.getRuntime().exec("su");
-                out = process.getOutputStream();
+				process = Runtime.getRuntime().exec("su");
+				out = process.getOutputStream();
 
-                // DELETES THE DUMMY FILE IF PRESENT
-                out.write("cd system\n".getBytes());
-                out.write("rm abc.txt\n".getBytes());
-                out.write("exit\n".getBytes());
-                out.flush();
-                out.close();
-                process.waitFor();
-                process.destroy();
+				// DELETES THE DUMMY FILE IF PRESENT
+				out.write("cd system\n".getBytes());
+				out.write("rm abc.txt\n".getBytes());
+				out.write("exit\n".getBytes());
+				out.flush();
+				out.close();
+				process.waitFor();
+				process.destroy();
 
-            } 
-            catch (Exception e) 
-            {
+			} catch (Exception e)
+			{
 
-                setText(root,"ROOT PERMISSION NOT GRANTED OR SUPERUSER APP MISSING");
-            }
-        } 
-        else 
-        {
+				setText(root,
+						"ROOT PERMISSION NOT GRANTED OR SUPERUSER APP MISSING");
+			}
+		} else
+		{
 
-            setText(root, "NOT ROOTED");
-        }
+			setText(root, "NOT ROOTED");
+		}
 
-    }
+	}
 
-    public static boolean suAvailable() 
-    {
-        boolean flag;
-        try 
-        {
-            Process p = Runtime.getRuntime().exec("su");
-            p.destroy();
-            flag = true;
-        }
-        catch (Exception e) 
-        {
-            flag = false;
-        }
-        return flag;
-    }
+	public static boolean suAvailable()
+	{
+		boolean flag;
+		try
+		{
+			Process p = Runtime.getRuntime().exec("su");
+			p.destroy();
+			flag = true;
+		} catch (Exception e)
+		{
+			flag = false;
+		}
+		return flag;
+	}
 
-    public static void busybox() 
-    {
-        TextView z = (TextView)  activity.findViewById(R.id.busyboxid);
-        String line = null;
-        char n[] = null;
+	public static void busybox()
+	{
+		TextView z = (TextView) activity.findViewById(R.id.busyboxid);
+		String line = null;
+		char n[] = null;
 
-        try 
-        {
+		try
+		{
 
-            Process p = Runtime.getRuntime().exec("busybox");
-            InputStream a = p.getInputStream();
-            InputStreamReader read = new InputStreamReader(a);
-            BufferedReader in = new BufferedReader(read);
+			Process p = Runtime.getRuntime().exec("busybox");
+			InputStream a = p.getInputStream();
+			InputStreamReader read = new InputStreamReader(a);
+			BufferedReader in = new BufferedReader(read);
 
-            busybox: while ((line = in.readLine()) != null) 
-            {
-                n = line.toCharArray();
+			busybox: while ((line = in.readLine()) != null)
+			{
+				n = line.toCharArray();
 
-                for (char c : n) 
-                {
+				for (char c : n)
+				{
 
-                    if (Character.isDigit(c)) 
-                    {
-                        break busybox;
+					if (Character.isDigit(c))
+					{
+						break busybox;
 
-                    }
-                }
+					}
+				}
 
-            }
+			}
 
-            setText(z, new StringBuilder("BUSYBOX INSTALLED - ").append(line));
+			setText(z, new StringBuilder("BUSYBOX INSTALLED - ").append(line));
 
-        } 
-        catch (Exception e) 
-        {
-            setText(z, "BUSYBOX NOT INSTALLED OR NOT SYMLINKED");
-        }
-    }
+		} catch (Exception e)
+		{
+			setText(z, "BUSYBOX NOT INSTALLED OR NOT SYMLINKED");
+		}
+	}
 
-    public static boolean checkFile() throws IOException 
-    {
-        boolean flag=false;
-        try
-        {
-        	File x = new File("/system/abc.txt");
-            flag = x.exists();
-           
-        } 
-        catch (SecurityException e)
-        {
-        	showToast("Checking by alternate method..");
-        	Process p = Runtime.getRuntime().exec("ls /system");
-            InputStream a = p.getInputStream();
-            BufferedReader in = new BufferedReader(new InputStreamReader(a));
-            String line;
-            while ((line = in.readLine()) != null) 
-            {
-            	Log.d("FILE=", line);
-                if(line.contains("abc.txt"))
-                {
-                    flag=true;
-                    break;
-                }
-            }
+	public static boolean checkFile() throws IOException
+	{
+		boolean flag = false;
+		try
+		{
+			File x = new File("/system/abc.txt");
+			flag = x.exists();
 
-        }
-        return flag;
-    }
+		} catch (SecurityException e)
+		{
+			showToast("Checking by alternate method..");
+			Process p = Runtime.getRuntime().exec("ls /system");
+			InputStream a = p.getInputStream();
+			BufferedReader in = new BufferedReader(new InputStreamReader(a));
+			String line;
+			while ((line = in.readLine()) != null)
+			{
+				Log.d("FILE=", line);
+				if (line.contains("abc.txt"))
+				{
+					flag = true;
+					break;
+				}
+			}
 
-    public static void setText(TextView t, CharSequence x) 
-    {
-        txtview = t;
-        msg = x;
-        Runnable r = new Runnable()
-            {
-                @Override
-                public void run() 
-                {
-                    txtview.setText(msg);
-                    txtview.invalidate();
+		}
+		return flag;
+	}
 
-                }
-            };
-        activity.runOnUiThread(r);
-        try
-        {
-            Thread.sleep(800);
-        }
-        catch(Exception e)
-        {}
-    }
+	public static void setText(TextView t, CharSequence x)
+	{
+		txtview = t;
+		msg = x;
+		Runnable r = new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				txtview.setText(msg);
+				txtview.invalidate();
 
-    protected static void setActivity(MainActivity a, ProgressDialog d) 
-    {
-    	activity = a;
-        dialog = d;
-    }
-    
-    private static void showToast(CharSequence x)
-    {
-    	msg2=x;
-    	Runnable r = new Runnable()
-    	{
-    		@Override
-    		public void run()
-    		{
-    			Toast.makeText(activity, msg2, Toast.LENGTH_LONG).show();
-    		}
-    	};
-    	activity.runOnUiThread(r);
-    	
-    }
+			}
+		};
+		activity.runOnUiThread(r);
+		try
+		{
+			Thread.sleep(800);
+		} catch (Exception e)
+		{
+		}
+	}
 
+	protected static void setActivity(MainActivity a, ProgressDialog d)
+	{
+		activity = a;
+		dialog = d;
+	}
+
+	private static void showToast(CharSequence x)
+	{
+		msg2 = x;
+		Runnable r = new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				Toast.makeText(activity, msg2, Toast.LENGTH_LONG).show();
+			}
+		};
+		activity.runOnUiThread(r);
+
+	}
+	
+	private static void su_app()
+	{
+		su_app=(TextView)activity.findViewById(R.id.su_app);
+		
+		String[] packages = {"eu.chainfire.supersu", "eu.chainfire.supersu.pro", "com.koushikdutta.superuser", "com.noshufou.android.su"};
+		PackageManager pm = activity.getPackageManager();
+		int i,l=packages.length;String superuser=null;
+		
+		for(i=0;i<l;i++)
+		{
+			try
+			{
+				ApplicationInfo info = pm.getApplicationInfo(packages[i], 0);//Testing method by SArnab©®@XDA. Tweaked by me. Thanks:)
+				PackageInfo info2 = pm.getPackageInfo(packages[i], 0);
+				superuser=pm.getApplicationLabel(info).toString() + " " + info2.versionName;
+				break;
+			}
+			catch(PackageManager.NameNotFoundException e)
+			{
+				continue;
+			}
+		}
+		
+		if(superuser!=null)
+		{
+			setText(su_app,"SUPERUSER APP : "+superuser);
+		}
+		else
+		{
+			su_alternative();
+		}
+	}
+	
+
+	private static void su_alternative()
+	{
+		String line;
+		try
+		{
+			Process p = Runtime.getRuntime().exec("su -v");//Superuser version
+			InputStreamReader t = new InputStreamReader(p.getInputStream());			
+			BufferedReader in = new BufferedReader(t);
+			line=in.readLine();
+			
+			char[] chars=line.toCharArray();
+			boolean flag=false;//Check if su -v returns the package name instead of just the version number
+			for(char c:chars)
+			{
+				if(Character.isLetter(c))
+				{
+					flag=true;
+				}
+			}
+			if(!flag)
+			{
+				line="Unknown Superuser";
+			}
+		}
+		catch(Exception e)
+		{
+			line="Unknown Superuser";
+		}
+		
+		setText(su_app,"SUPERUSER APP : "+line);
+		
+	}
+	
+	
 }

@@ -16,41 +16,6 @@
     tools:ignore="HardcodedText" >
 
     <TextView
-        android:id="@+id/status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="118dp"
-        android:text="@string/Status"
-        android:freezesText="true"
-        android:textColor="@android:color/white"
-        android:textSize="43.00dp" />
-
-    <TextView
-        android:id="@+id/busyboxid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/status"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="93dp"
-        android:text="BUSYBOX : NOT YET CHECKED"
-        android:freezesText="true"
-        android:textColor="@android:color/white"
-        android:textSize="43.00dp" />
-
-    <TextView
-        android:id="@+id/devicemodel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/busyboxid"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="79dp"
-        android:text="DEVICE:- "
-        android:textColor="@android:color/white"
-        android:textSize="43.00dp" />
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,6 +49,53 @@
         android:text="@string/Description"
         android:textColor="@android:color/white"
         android:textSize="40.00dp" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="92dp"
+        android:freezesText="true"
+        android:text="@string/Status"
+        android:textColor="@android:color/white"
+        android:textSize="43.00dp" />
+
+    <TextView
+        android:id="@+id/su_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/devicemodel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="54dp"
+        android:textColor="@android:color/white"
+        android:textSize="43.00dp"
+        android:freezesText="true"
+        android:text="SUPERUSER APP : NOT YET CHECKED" />
+
+    <TextView
+        android:id="@+id/busyboxid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/su_app"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="55dp"
+        android:freezesText="true"
+        android:text="BUSYBOX : NOT YET CHECKED"
+        android:textColor="@android:color/white"
+        android:textSize="43.00dp" />
+
+    <TextView
+        android:id="@+id/devicemodel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="176dp"
+        android:text="DEVICE:- "
+        android:textColor="@android:color/white"
+        android:textSize="43.00dp" />
 
 </RelativeLayout>
 </ScrollView>
