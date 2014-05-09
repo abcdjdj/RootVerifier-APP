@@ -19,6 +19,9 @@ along with Root Verifier. If not, see <http://www.gnu.org/licenses/>.*/
 
 package com.abcdjdj.rootverifier;
 
+import static com.abcdjdj.rootverifier.Utils.MiscFunctions.activity;
+import static com.abcdjdj.rootverifier.Utils.MiscFunctions.setDeviceName;
+
 import java.io.File;
 
 import android.app.Activity;
@@ -34,9 +37,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
-import static com.abcdjdj.rootverifier.Utils.MiscFunctions.*;
 /**
  * @author - Madhav Kanbur (abcdjdj)
  * @version - V1.4
@@ -113,18 +114,7 @@ public class MainActivity extends Activity
         
         
     }
-    
-    public void setDeviceName()
-    {
-        TextView c = (TextView) findViewById(R.id.devicemodel);
-
-        StringBuilder x = new StringBuilder("DEVICE:- ");
-        x.append(android.os.Build.MANUFACTURER).append(" ").append(android.os.Build.MODEL);
-
-        c.setText(x);
-
-    }
-
+       
     @Override
     public void onBackPressed()
     {

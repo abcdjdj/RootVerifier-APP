@@ -4,6 +4,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.abcdjdj.rootverifier.MainActivity;
+import com.abcdjdj.rootverifier.R;
 
 public class MiscFunctions
 {
@@ -47,6 +48,16 @@ public class MiscFunctions
 			}
 		};
 		activity.runOnUiThread(r);
-
 	}
+	
+	public static void setDeviceName()
+	{
+	     TextView c = (TextView)activity.findViewById(R.id.devicemodel);
+
+	     StringBuilder x = new StringBuilder("DEVICE:- ");
+	     x.append(android.os.Build.MANUFACTURER).append(" ").append(android.os.Build.MODEL);
+
+	     c.setText(x);
+
+    }
 }
