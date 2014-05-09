@@ -1,8 +1,8 @@
 /**
 Root Verifier - Android App
-Copyright (C) 2013 Madhav Kanbur
+Copyright (C) 2014 Madhav Kanbur
 
-This file is part of Root Verifier.
+This file is a part of Root Verifier.
 
 Root Verifier is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
