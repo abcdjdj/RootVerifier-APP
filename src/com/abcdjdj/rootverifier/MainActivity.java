@@ -20,6 +20,7 @@ along with Root Verifier. If not, see <http://www.gnu.org/licenses/>.*/
 package com.abcdjdj.rootverifier;
 
 import static com.abcdjdj.rootverifier.Utils.MiscFunctions.setDeviceName;
+import static com.abcdjdj.rootverifier.Utils.MiscFunctions.activity;
 import static com.abcdjdj.rootverifier.Utils.Rating.rateOnPS;
 import static com.abcdjdj.rootverifier.Utils.Rating.exit_rating;
 import android.app.Activity;
@@ -38,7 +39,7 @@ import android.view.View;
 public class MainActivity extends Activity 
 {
   
-    private static ProgressDialog dialog;
+    static ProgressDialog dialog;
    
     //If the file exists, then no need to ask again else ask.
     @Override
@@ -53,7 +54,7 @@ public class MainActivity extends Activity
     public void onStartUp()
     {
        
-        CheckRoot.setActivity(this, dialog);
+        activity=this;//activity is a static field in the Utils.MiscFunctions class
         setDeviceName();// Calling the function to display the current device model on startup of the app.
     }
 
@@ -94,9 +95,7 @@ public class MainActivity extends Activity
     {
 
         dialog = ProgressDialog.show(this, "Verifying root..","Checking. Please wait...", false);
-        dialog.setCanceledOnTouchOutside(false);
-        CheckRoot.setActivity(this, dialog);
-        
+        dialog.setCanceledOnTouchOutside(false);           
         new CheckRoot(new CheckBusyBox().t,new CheckSuApp().t);
                 
     }

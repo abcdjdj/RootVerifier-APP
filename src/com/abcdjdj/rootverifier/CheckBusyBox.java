@@ -21,7 +21,7 @@ public class CheckBusyBox implements Runnable
 		busybox();
 	}
 	
-	public static void busybox()
+	private static void busybox()
 	{
 		TextView z = (TextView)activity.findViewById(R.id.busyboxid);
 		String line = null;

@@ -22,21 +22,16 @@ import static com.abcdjdj.rootverifier.Utils.MiscFunctions.activity;
 import static com.abcdjdj.rootverifier.Utils.MiscFunctions.setText;
 import static com.abcdjdj.rootverifier.Utils.MiscFunctions.showToast;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
-import android.app.ProgressDialog;
-import android.util.Log;
 import android.widget.TextView;
 
 public class CheckRoot implements Runnable
 {
 	
-	private static ProgressDialog dialog;
 	Thread t,check_su_app,check_busybox;
 	
 	CheckRoot(Thread t1,Thread t2)
@@ -58,12 +53,12 @@ public class CheckRoot implements Runnable
 		}
 		catch(InterruptedException e)
 		{}
-		dialog.dismiss();
+		MainActivity.dialog.dismiss();
 		showToast("Checking complete.");
 
 	}
 
-	public static void checkRoot()
+	private static void checkRoot()
 	{
 		TextView root = (TextView) activity.findViewById(R.id.status);
 
@@ -123,7 +118,7 @@ public class CheckRoot implements Runnable
 
 	}
 
-	public static boolean suAvailable()
+	private static boolean suAvailable()
 	{
 		boolean flag;
 		try
@@ -139,28 +134,28 @@ public class CheckRoot implements Runnable
 	}
 
 	
-	public static boolean checkFile() throws IOException
+	private static boolean checkFile() throws IOException
 	{
 		boolean flag = false;
 		try
 		{
 			File x = new File("/system/abc.txt");
 			flag = x.exists();
-
+			throw new SecurityException();
 		} 
 		catch (SecurityException e)
 		{
 			showToast("Checking by alternate method..");
 			Process p = Runtime.getRuntime().exec("ls /system");
-			InputStream a = p.getInputStream();
-			BufferedReader in = new BufferedReader(new InputStreamReader(a));
-			String line;
-			while ((line = in.readLine()) != null)
+			Scanner sc = new Scanner(p.getInputStream());
+			String line=null;
+			
+			while(sc.hasNextLine())
 			{
-				Log.d("FILE=", line);
-				if (line.contains("abc.txt"))
+				line=sc.nextLine();
+				if(line.contains("abc.txt"));
 				{
-					flag = true;
+					flag=true;
 					break;
 				}
 			}
@@ -168,15 +163,5 @@ public class CheckRoot implements Runnable
 		}
 		return flag;
 	}
-
-
-	static void setActivity(MainActivity a, ProgressDialog d)
-	{
-		//activity variable is from the Utils.MiscFunctions class
-		activity = a;
-		dialog = d;
-	}
-	
-	
 	
 }
