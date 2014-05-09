@@ -141,7 +141,7 @@ public class CheckRoot implements Runnable
 		{
 			File x = new File("/system/abc.txt");
 			flag = x.exists();
-			throw new SecurityException();
+			
 		} 
 		catch (SecurityException e)
 		{
