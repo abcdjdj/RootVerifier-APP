@@ -23,7 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.PrintWriter;
 
 import android.app.ProgressDialog;
 import android.content.pm.ApplicationInfo;
@@ -64,49 +64,48 @@ public class CheckRoot extends Thread
 			{
 
 				Process process = Runtime.getRuntime().exec("su");
-				OutputStream out = process.getOutputStream();
+				PrintWriter pw = new PrintWriter(process.getOutputStream(),true);
 
 				// CREATING A DUMMY FILE in /system called abc.txt
-				out.write("mount -o remount rw /system/\n".getBytes());
-				out.write("cd system\n".getBytes());
-				out.write("echo \"ABC\" > abc.txt\n".getBytes());
-				out.write("exit\n".getBytes());
-				out.flush();
-				out.close();
+				pw.println("mount -o remount rw /system/");
+				pw.println("cd system");
+				pw.println("echo \"ABC\" > abc.txt");
+				pw.println("exit");
+				pw.close();
 				process.waitFor();
 
-				if (checkFile())// Checks if the file has been successfully
-								// created
+				if (checkFile())// Checks if the file has been successfully created
 				{
 					setText(root, "DEVICE IS ROOTED");
 
-				} else
+				} 
+				else
 				{
 
 					setText(root,
 							"ROOT PERMISSION NOT GRANTED OR SUPERUSER APP MISSING");
 
 				}
-
-				process = Runtime.getRuntime().exec("su");
-				out = process.getOutputStream();
-
+			
 				// DELETES THE DUMMY FILE IF PRESENT
-				out.write("cd system\n".getBytes());
-				out.write("rm abc.txt\n".getBytes());
-				out.write("exit\n".getBytes());
-				out.flush();
-				out.close();
+				process = Runtime.getRuntime().exec("su");
+				pw = new PrintWriter(process.getOutputStream());
+				pw.println("cd system");
+				pw.println("rm abc.txt");
+				pw.println("exit");
+				pw.close();
 				process.waitFor();
 				process.destroy();
 
-			} catch (Exception e)
+			} 
+			catch (Exception e)
 			{
 
 				setText(root,
 						"ROOT PERMISSION NOT GRANTED OR SUPERUSER APP MISSING");
 			}
-		} else
+		} 
+		else
 		{
 
 			setText(root, "NOT ROOTED");
