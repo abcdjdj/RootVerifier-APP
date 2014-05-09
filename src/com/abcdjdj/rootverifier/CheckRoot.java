@@ -37,18 +37,27 @@ public class CheckRoot implements Runnable
 {
 	
 	private static ProgressDialog dialog;
-	Thread t;
+	Thread t,check_su_app,check_busybox;
 	
-	CheckRoot()
+	CheckRoot(Thread t1,Thread t2)
 	{
 		t = new Thread(this,"CheckRoot");
 		t.start();
+		check_busybox=t1;
+		check_su_app=t2;
 	}
 
 	@Override
 	public void run()
 	{
 		checkRoot();
+		try
+		{
+			check_busybox.join();
+			check_su_app.join();
+		}
+		catch(InterruptedException e)
+		{}
 		dialog.dismiss();
 		showToast("Checking complete.");
 
