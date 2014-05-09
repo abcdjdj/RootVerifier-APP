@@ -18,6 +18,10 @@ You should have received a copy of the GNU General Public License
 along with Root Verifier. If not, see <http://www.gnu.org/licenses/>.*/
 package com.abcdjdj.rootverifier;
 
+import static com.abcdjdj.rootverifier.Utils.MiscFunctions.activity;
+import static com.abcdjdj.rootverifier.Utils.MiscFunctions.setText;
+import static com.abcdjdj.rootverifier.Utils.MiscFunctions.showToast;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -31,21 +35,17 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class CheckRoot extends Thread
 {
-	static MainActivity activity;
-	private static TextView txtview;
-	private static CharSequence msg, msg2;
-	private static TextView su_app;
+	
 	private static ProgressDialog dialog;
+	
 
 	@Override
 	public void run()
 	{
 		checkRoot();
-		busybox();
 		su_app();
 
 		dialog.dismiss();
@@ -128,44 +128,7 @@ public class CheckRoot extends Thread
 		return flag;
 	}
 
-	public static void busybox()
-	{
-		TextView z = (TextView) activity.findViewById(R.id.busyboxid);
-		String line = null;
-		char n[] = null;
-
-		try
-		{
-
-			Process p = Runtime.getRuntime().exec("busybox");
-			InputStream a = p.getInputStream();
-			InputStreamReader read = new InputStreamReader(a);
-			BufferedReader in = new BufferedReader(read);
-
-			busybox: while ((line = in.readLine()) != null)
-			{
-				n = line.toCharArray();
-
-				for (char c : n)
-				{
-
-					if (Character.isDigit(c))
-					{
-						break busybox;
-
-					}
-				}
-
-			}
-
-			setText(z, new StringBuilder("BUSYBOX INSTALLED - ").append(line));
-
-		} catch (Exception e)
-		{
-			setText(z, "BUSYBOX NOT INSTALLED OR NOT SYMLINKED");
-		}
-	}
-
+	
 	public static boolean checkFile() throws IOException
 	{
 		boolean flag = false;
@@ -174,7 +137,8 @@ public class CheckRoot extends Thread
 			File x = new File("/system/abc.txt");
 			flag = x.exists();
 
-		} catch (SecurityException e)
+		} 
+		catch (SecurityException e)
 		{
 			showToast("Checking by alternate method..");
 			Process p = Runtime.getRuntime().exec("ls /system");
@@ -195,53 +159,19 @@ public class CheckRoot extends Thread
 		return flag;
 	}
 
-	public static void setText(TextView t, CharSequence x)
-	{
-		txtview = t;
-		msg = x;
-		Runnable r = new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				txtview.setText(msg);
-				txtview.invalidate();
 
-			}
-		};
-		activity.runOnUiThread(r);
-		try
-		{
-			Thread.sleep(800);
-		} catch (Exception e)
-		{
-		}
-	}
+	
 
-	protected static void setActivity(MainActivity a, ProgressDialog d)
+	static void setActivity(MainActivity a, ProgressDialog d)
 	{
+		//activity variable is from the Utils.MiscFunctions class
 		activity = a;
 		dialog = d;
-	}
-
-	private static void showToast(CharSequence x)
-	{
-		msg2 = x;
-		Runnable r = new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				Toast.makeText(activity, msg2, Toast.LENGTH_LONG).show();
-			}
-		};
-		activity.runOnUiThread(r);
-
 	}
 	
 	private static void su_app()
 	{
-		su_app=(TextView)activity.findViewById(R.id.su_app);
+		TextView su_app=(TextView)activity.findViewById(R.id.su_app);
 		
 		String[] packages = {"eu.chainfire.supersu", "eu.chainfire.supersu.pro", "com.koushikdutta.superuser", "com.noshufou.android.su"};
 		PackageManager pm = activity.getPackageManager();
@@ -268,12 +198,12 @@ public class CheckRoot extends Thread
 		}
 		else
 		{
-			su_alternative();
+			su_alternative(su_app);
 		}
 	}
 	
 
-	private static void su_alternative()
+	private static void su_alternative(TextView su_app)
 	{
 		String line;
 		try

@@ -36,7 +36,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import static com.abcdjdj.rootverifier.Utils.MiscFunctions.*;
 /**
  * @author - Madhav Kanbur (abcdjdj)
  * @version - V1.4
@@ -109,6 +109,7 @@ public class MainActivity extends Activity
         dialog.setCanceledOnTouchOutside(false);
         CheckRoot.setActivity(this, dialog);
 
+        new CheckBusyBox();
         CheckRoot r = new CheckRoot();
         r.start();
 
@@ -173,16 +174,16 @@ public class MainActivity extends Activity
         try
         {
             intent= new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.abcdjdj.rootverifier"));
-            CheckRoot.activity.startActivity(intent);
+            activity.startActivity(intent);
         }
         catch(ActivityNotFoundException e)
         {
             intent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.abcdjdj.rootverifier"));
-            CheckRoot.activity.startActivity(intent);
+            activity.startActivity(intent);
         }
         catch(Exception ex)
         {
-            Toast.makeText(CheckRoot.activity, "Unknown error occured", Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, "Unknown error occured", Toast.LENGTH_LONG).show();
 
         }
         writeFlag(true);
