@@ -234,11 +234,11 @@ public class MainActivity extends Activity
     
     private void about_app()
     {
-    	String msg="Root Verifier is a free software: you can redistribute it and/or modify " +
-    			"it under the terms of the GNU General Public License as published by " +
-    			"the Free Software Foundation, either version 2 of the License, or " +
-    			"(at your option) any later version.\n\nGithub - https://github.com/abcdjdj/RootVerifier-APP\n\n" + 
-    			"Credits:-\n-->SArnab©®@XDA\n-->Androlover98@XDA\n-->android1999@XDA\n-->Abhinav2@XDA\n-->ZANKRUT.DOSHI@XDA";
+    	StringBuilder msg= new StringBuilder("Root Verifier is a free software: you can redistribute it and/or modify ")
+    			.append("it under the terms of the GNU General Public License as published by ")
+    			.append("the Free Software Foundation, either version 2 of the License, or ")
+    			.append("(at your option) any later version.\n\nGithub - https://github.com/abcdjdj/RootVerifier-APP\n\n")
+    			.append("Credits:-\n-->SArnab©®@XDA\n-->Androlover98@XDA\n-->android1999@XDA\n-->Abhinav2@XDA\n-->ZANKRUT.DOSHI@XDA");
     	
     	Builder alert = new AlertDialog.Builder(this);
     	alert.setTitle("About the app");
