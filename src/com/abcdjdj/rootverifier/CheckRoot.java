@@ -159,6 +159,7 @@ public class CheckRoot implements Runnable
 					break;
 				}
 			}
+			sc.close();
 
 		}
 		return flag;
