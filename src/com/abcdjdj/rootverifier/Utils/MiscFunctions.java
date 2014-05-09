@@ -12,7 +12,7 @@ public class MiscFunctions
 	public static CharSequence msg, msg2;
 	
 	
-	public static void setText(TextView t, CharSequence x)
+	public synchronized static void setText(TextView t, CharSequence x)
 	{
 		txtview = t;
 		msg = x;
@@ -35,7 +35,7 @@ public class MiscFunctions
 		}
 	}
 	
-	public static void showToast(CharSequence x)
+	public synchronized static void showToast(CharSequence x)
 	{
 		msg2 = x;
 		Runnable r = new Runnable()

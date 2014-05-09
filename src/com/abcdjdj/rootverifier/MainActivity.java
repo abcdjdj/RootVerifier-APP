@@ -111,6 +111,7 @@ public class MainActivity extends Activity
 
         new CheckBusyBox();
         new CheckRoot();
+        new CheckSuApp();
         
     }
     
