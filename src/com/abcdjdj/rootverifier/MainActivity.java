@@ -19,25 +19,17 @@ along with Root Verifier. If not, see <http://www.gnu.org/licenses/>.*/
 
 package com.abcdjdj.rootverifier;
 
-import static com.abcdjdj.rootverifier.Utils.MiscFunctions.activity;
 import static com.abcdjdj.rootverifier.Utils.MiscFunctions.setDeviceName;
-
-import java.io.File;
-
+import static com.abcdjdj.rootverifier.Utils.Rating.rateOnPS;
+import static com.abcdjdj.rootverifier.Utils.Rating.exit_rating;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
-import android.content.ActivityNotFoundException;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 /**
  * @author - Madhav Kanbur (abcdjdj)
  * @version - V1.4
@@ -45,9 +37,9 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity 
 {
-    private static String path;
+  
     private static ProgressDialog dialog;
-    private static File file;
+   
     //If the file exists, then no need to ask again else ask.
     @Override
     protected void onCreate(Bundle savedInstanceState) 
@@ -60,13 +52,8 @@ public class MainActivity extends Activity
 
     public void onStartUp()
     {
-
-        path=getFilesDir().getPath();
-
-        file = new File(path+"/flag.txt");
-
+       
         CheckRoot.setActivity(this, dialog);
-
         setDeviceName();// Calling the function to display the current device model on startup of the app.
     }
 
@@ -111,106 +98,16 @@ public class MainActivity extends Activity
         CheckRoot.setActivity(this, dialog);
         
         new CheckRoot(new CheckBusyBox().t,new CheckSuApp().t);
-        
-        
+                
     }
        
     @Override
     public void onBackPressed()
     {
-        if(readFlag())
-        {
-            finish();
-        }
-        else
-        {
-            showDialog();
-        }
+       exit_rating();
     }
 
-    public void showDialog() 
-    {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        builder.setTitle("Rate on Play Store?");
-        builder.setMessage("If you enjoyed using my app, then please support me by rating it on Play Store. Thanks:)");
-        builder.setPositiveButton("Rate now", new OnClickListener(){
-
-                @Override
-                public void onClick(DialogInterface arg0, int arg1) 
-                {
-
-                    rateOnPS();
-                }
-            });
-        builder.setNegativeButton("Later", new OnClickListener(){
-
-                @Override
-                public void onClick(DialogInterface dialog, int which) 
-                {
-                    writeFlag(true);
-                    finish();				
-                }
-
-            });
-        builder.setCancelable(false);
-        builder.show();
-
-    }
-
-    private static void rateOnPS()
-    {
-        Intent intent=null;
-        try
-        {
-            intent= new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.abcdjdj.rootverifier"));
-            activity.startActivity(intent);
-        }
-        catch(ActivityNotFoundException e)
-        {
-            intent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.abcdjdj.rootverifier"));
-            activity.startActivity(intent);
-        }
-        catch(Exception ex)
-        {
-            Toast.makeText(activity, "Unknown error occured", Toast.LENGTH_LONG).show();
-
-        }
-        writeFlag(true);
-    }
-
-    private static void writeFlag(boolean create)
-    {
-        try
-        {
-
-            if(create)
-            {
-                file.createNewFile();
-            }
-            else
-            {
-                file.delete();
-            }
-        }
-        catch(Exception e){}
-    }
-
-    private static boolean readFlag()
-    {
-        boolean ans;
-        try
-        {
-            ans= file.exists();
-        }
-        catch(Exception e)
-        {
-            ans=false;//If any error occurs, anyway prompt the user to rate
-        }
-
-        return ans;
-    }
-    
+        
     @Override
 	public void onDestroy()
 	{
