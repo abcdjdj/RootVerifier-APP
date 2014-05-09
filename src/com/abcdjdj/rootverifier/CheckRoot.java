@@ -36,11 +36,17 @@ import android.content.pm.PackageManager;
 import android.util.Log;
 import android.widget.TextView;
 
-public class CheckRoot extends Thread
+public class CheckRoot implements Runnable
 {
 	
 	private static ProgressDialog dialog;
+	Thread t;
 	
+	CheckRoot()
+	{
+		t = new Thread(this,"CheckRoot");
+		t.start();
+	}
 
 	@Override
 	public void run()

@@ -110,10 +110,10 @@ public class MainActivity extends Activity
         CheckRoot.setActivity(this, dialog);
 
         new CheckBusyBox();
-        CheckRoot r = new CheckRoot();
-        r.start();
-
+        new CheckRoot();
+        
     }
+    
     public void setDeviceName()
     {
         TextView c = (TextView) findViewById(R.id.devicemodel);
