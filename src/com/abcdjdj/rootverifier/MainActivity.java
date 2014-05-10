@@ -148,9 +148,7 @@ public class MainActivity extends Activity
         int width = size.x;
         int height = size.y;
         
-        BitmapDrawable bg = (BitmapDrawable)getResources().getDrawable(R.drawable.bg);
-                
-        if(width>=bg.getBitmap().getWidth() && height>=bg.getBitmap().getHeight())
+        if(width>=512 && height>=512)
         	return;
     	
         RelativeLayout layout = (RelativeLayout)this.findViewById(R.id.relative_layout);   
