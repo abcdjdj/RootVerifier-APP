@@ -22,6 +22,7 @@ package com.abcdjdj.rootverifier.Utils;
 import static com.abcdjdj.rootverifier.Utils.MiscFunctions.activity;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import android.app.AlertDialog;
@@ -75,27 +76,20 @@ public class Rating
 					.show();
 
 		}
-		writeFlag(true);
+		writeFlag();
 	}
 
-	private static void writeFlag(boolean create)
+	private static void writeFlag()
 	{
 		try
 		{
-
-			if (create)
-			{
-				file.createNewFile();
-				PrintWriter pw = new PrintWriter(file);
-				pw.println("Flag created!");
-				pw.close();
-			} 
-			else
-			{
-				file.delete();
-			}
+			file.createNewFile();
+			PrintWriter pw = new PrintWriter(file);
+			pw.println("Flag created!");
+			pw.close();
+			
 		} 
-		catch (Exception e)
+		catch (IOException e)
 		{}
 	}
 
@@ -136,7 +130,7 @@ public class Rating
 			@Override
 			public void onClick(DialogInterface dialog, int which)
 			{
-				writeFlag(true);
+				writeFlag();
 				activity.finish();
 			}
 
