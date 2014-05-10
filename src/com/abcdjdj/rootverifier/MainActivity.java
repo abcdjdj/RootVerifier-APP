@@ -19,18 +19,24 @@ along with Root Verifier. If not, see <http://www.gnu.org/licenses/>.*/
 
 package com.abcdjdj.rootverifier;
 
-import static com.abcdjdj.rootverifier.Utils.MiscFunctions.setDeviceName;
 import static com.abcdjdj.rootverifier.Utils.MiscFunctions.activity;
-import static com.abcdjdj.rootverifier.Utils.Rating.rateOnPS;
+import static com.abcdjdj.rootverifier.Utils.MiscFunctions.setDeviceName;
 import static com.abcdjdj.rootverifier.Utils.Rating.exit_rating;
+import static com.abcdjdj.rootverifier.Utils.Rating.rateOnPS;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
+import android.graphics.Bitmap;
+import android.graphics.Point;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 /**
  * @author - Madhav Kanbur (abcdjdj)
  * @version - V1.5
@@ -56,6 +62,7 @@ public class MainActivity extends Activity
        
         activity=this;//activity is a static field in the Utils.MiscFunctions class
         setDeviceName();// Calling the function to display the current device model on startup of the app.
+        resizeBackground();
     }
 
     @Override
@@ -131,6 +138,26 @@ public class MainActivity extends Activity
     	alert.setMessage(msg);
     	alert.setPositiveButton("OK",null);
     	alert.show();  
+    }
+    
+    private void resizeBackground()
+    {
+    	Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
+        
+        if(width>=512 && height>=512)
+        	return;
+    	
+        RelativeLayout layout = (RelativeLayout)this.findViewById(R.id.relative_layout);   
+        Drawable dr = getResources().getDrawable(R.drawable.bg);
+        Bitmap bitmap = ((BitmapDrawable) dr).getBitmap();
+              
+        
+        dr = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, width, height, true));
+        layout.setBackground(dr);
     }
 
 }
