@@ -20,9 +20,8 @@ along with Root Verifier. If not, see <http://www.gnu.org/licenses/>.*/
 package com.abcdjdj.rootverifier;
 
 import static com.abcdjdj.rootverifier.Utils.MiscFunctions.activity;
+import static com.abcdjdj.rootverifier.Utils.MiscFunctions.rateOnPS;
 import static com.abcdjdj.rootverifier.Utils.MiscFunctions.setDeviceName;
-import static com.abcdjdj.rootverifier.Utils.Rating.exit_rating;
-import static com.abcdjdj.rootverifier.Utils.Rating.rateOnPS;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -107,13 +106,7 @@ public class MainActivity extends Activity
                 
     }
        
-    @Override
-    public void onBackPressed()
-    {
-       exit_rating();
-    }
-
-        
+   
     @Override
 	public void onDestroy()
 	{

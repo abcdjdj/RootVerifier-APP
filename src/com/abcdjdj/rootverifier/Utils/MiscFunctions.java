@@ -19,6 +19,9 @@ along with Root Verifier. If not, see <http://www.gnu.org/licenses/>.*/
 
 package com.abcdjdj.rootverifier.Utils;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -79,4 +82,28 @@ public class MiscFunctions
 	     c.setText(x);
 
     }
+	
+	public static void rateOnPS()
+	{
+		Intent intent = null;
+		try
+		{
+			intent = new Intent(Intent.ACTION_VIEW,
+					Uri.parse("market://details?id=com.abcdjdj.rootverifier"));
+			activity.startActivity(intent);
+		} 
+		catch (ActivityNotFoundException e)
+		{
+			intent = new Intent(
+					Intent.ACTION_VIEW,
+					Uri.parse("https://play.google.com/store/apps/details?id=com.abcdjdj.rootverifier"));
+			activity.startActivity(intent);
+		} 
+		catch (Exception ex)
+		{
+			Toast.makeText(activity, "Unknown error occured", Toast.LENGTH_LONG)
+					.show();
+
+		}
+	}
 }
