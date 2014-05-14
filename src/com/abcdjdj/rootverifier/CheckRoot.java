@@ -31,15 +31,15 @@ import android.widget.TextView;
 
 public class CheckRoot implements Runnable
 {
-	
-	Thread t,check_su_app,check_busybox;
-	
-	CheckRoot(Thread t1,Thread t2)
+
+	Thread t, check_su_app, check_busybox;
+
+	CheckRoot(Thread t1, Thread t2)
 	{
-		t = new Thread(this,"CheckRoot");
+		t = new Thread(this, "CheckRoot");
 		t.start();
-		check_busybox=t1;
-		check_su_app=t2;
+		check_busybox = t1;
+		check_su_app = t2;
 	}
 
 	@Override
@@ -51,8 +51,9 @@ public class CheckRoot implements Runnable
 			check_busybox.join();
 			check_su_app.join();
 		}
-		catch(InterruptedException e)
-		{}
+		catch (InterruptedException e)
+		{
+		}
 		MainActivity.dialog.dismiss();
 		showToast("Checking complete.");
 
@@ -69,7 +70,8 @@ public class CheckRoot implements Runnable
 			{
 
 				Process process = Runtime.getRuntime().exec("su");
-				PrintWriter pw = new PrintWriter(process.getOutputStream(),true);
+				PrintWriter pw = new PrintWriter(process.getOutputStream(),
+						true);
 
 				// CREATING A DUMMY FILE in /system called abc.txt
 				pw.println("mount -o remount rw /system/");
@@ -79,11 +81,12 @@ public class CheckRoot implements Runnable
 				pw.close();
 				process.waitFor();
 
-				if (checkFile())// Checks if the file has been successfully created
+				if (checkFile())// Checks if the file has been successfully
+								// created
 				{
 					setText(root, "DEVICE IS ROOTED");
 
-				} 
+				}
 				else
 				{
 
@@ -91,7 +94,7 @@ public class CheckRoot implements Runnable
 							"ROOT PERMISSION NOT GRANTED OR SUPERUSER APP MISSING");
 
 				}
-			
+
 				// DELETES THE DUMMY FILE IF PRESENT
 				process = Runtime.getRuntime().exec("su");
 				pw = new PrintWriter(process.getOutputStream());
@@ -102,14 +105,14 @@ public class CheckRoot implements Runnable
 				process.waitFor();
 				process.destroy();
 
-			} 
+			}
 			catch (Exception e)
 			{
 
 				setText(root,
 						"ROOT PERMISSION NOT GRANTED OR SUPERUSER APP MISSING");
 			}
-		} 
+		}
 		else
 		{
 
@@ -126,14 +129,14 @@ public class CheckRoot implements Runnable
 			Process p = Runtime.getRuntime().exec("su");
 			p.destroy();
 			flag = true;
-		} catch (Exception e)
+		}
+		catch (Exception e)
 		{
 			flag = false;
 		}
 		return flag;
 	}
 
-	
 	private static boolean checkFile() throws IOException
 	{
 		boolean flag = false;
@@ -141,21 +144,22 @@ public class CheckRoot implements Runnable
 		{
 			File x = new File("/system/abc.txt");
 			flag = x.exists();
-			
-		} 
+
+		}
 		catch (SecurityException e)
 		{
 			showToast("Checking by alternate method..");
 			Process p = Runtime.getRuntime().exec("ls /system");
 			Scanner sc = new Scanner(p.getInputStream());
-			String line=null;
-			
-			while(sc.hasNextLine())
+			String line = null;
+
+			while (sc.hasNextLine())
 			{
-				line=sc.nextLine();
-				if(line.contains("abc.txt"));
+				line = sc.nextLine();
+				if (line.contains("abc.txt"))
+					;
 				{
-					flag=true;
+					flag = true;
 					break;
 				}
 			}
@@ -164,5 +168,5 @@ public class CheckRoot implements Runnable
 		}
 		return flag;
 	}
-	
+
 }

@@ -33,8 +33,7 @@ public class MiscFunctions
 	public static MainActivity activity;
 	public static TextView txtview;
 	public static CharSequence msg, msg2;
-	
-	
+
 	public synchronized static void setText(TextView t, CharSequence x)
 	{
 		txtview = t;
@@ -53,11 +52,12 @@ public class MiscFunctions
 		try
 		{
 			Thread.sleep(800);
-		} catch (Exception e)
+		}
+		catch (Exception e)
 		{
 		}
 	}
-	
+
 	public synchronized static void showToast(CharSequence x)
 	{
 		msg2 = x;
@@ -71,18 +71,19 @@ public class MiscFunctions
 		};
 		activity.runOnUiThread(r);
 	}
-	
+
 	public static void setDeviceName()
 	{
-	     TextView c = (TextView)activity.findViewById(R.id.devicemodel);
+		TextView c = (TextView) activity.findViewById(R.id.devicemodel);
 
-	     StringBuilder x = new StringBuilder("DEVICE:- ");
-	     x.append(android.os.Build.MANUFACTURER).append(" ").append(android.os.Build.MODEL);
+		StringBuilder x = new StringBuilder("DEVICE:- ");
+		x.append(android.os.Build.MANUFACTURER).append(" ")
+				.append(android.os.Build.MODEL);
 
-	     c.setText(x);
+		c.setText(x);
 
-    }
-	
+	}
+
 	public static void rateOnPS()
 	{
 		Intent intent = null;
@@ -91,14 +92,14 @@ public class MiscFunctions
 			intent = new Intent(Intent.ACTION_VIEW,
 					Uri.parse("market://details?id=com.abcdjdj.rootverifier"));
 			activity.startActivity(intent);
-		} 
+		}
 		catch (ActivityNotFoundException e)
 		{
 			intent = new Intent(
 					Intent.ACTION_VIEW,
 					Uri.parse("https://play.google.com/store/apps/details?id=com.abcdjdj.rootverifier"));
 			activity.startActivity(intent);
-		} 
+		}
 		catch (Exception ex)
 		{
 			Toast.makeText(activity, "Unknown error occured", Toast.LENGTH_LONG)

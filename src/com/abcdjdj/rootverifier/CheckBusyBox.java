@@ -28,21 +28,22 @@ import android.widget.TextView;
 public class CheckBusyBox implements Runnable
 {
 	Thread t;
+
 	CheckBusyBox()
 	{
-		t = new Thread(this,"CheckBusyBox");
+		t = new Thread(this, "CheckBusyBox");
 		t.start();
 	}
-	
+
 	@Override
 	public void run()
 	{
 		busybox();
 	}
-	
+
 	private static void busybox()
 	{
-		TextView z = (TextView)activity.findViewById(R.id.busyboxid);
+		TextView z = (TextView) activity.findViewById(R.id.busyboxid);
 		String line = null;
 		char n[] = null;
 
@@ -72,7 +73,8 @@ public class CheckBusyBox implements Runnable
 
 			setText(z, new StringBuilder("BUSYBOX INSTALLED - ").append(line));
 
-		} catch (Exception e)
+		}
+		catch (Exception e)
 		{
 			setText(z, "BUSYBOX NOT INSTALLED OR NOT SYMLINKED");
 		}

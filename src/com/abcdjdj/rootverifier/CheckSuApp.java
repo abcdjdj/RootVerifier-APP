@@ -31,12 +31,12 @@ import android.content.pm.PackageManager;
 import android.widget.TextView;
 
 public class CheckSuApp implements Runnable
-{	
+{
 	Thread t;
-	
+
 	CheckSuApp()
 	{
-		t = new Thread(this,"CheckSuApp");
+		t = new Thread(this, "CheckSuApp");
 		t.start();
 	}
 
@@ -45,73 +45,85 @@ public class CheckSuApp implements Runnable
 	{
 		su_app();
 	}
-	
+
 	private static void su_app()
 	{
-		TextView su_app=(TextView)activity.findViewById(R.id.su_app);
-		
-		String[] packages = {"eu.chainfire.supersu", "eu.chainfire.supersu.pro", "com.koushikdutta.superuser", "com.noshufou.android.su"};
+		TextView su_app = (TextView) activity.findViewById(R.id.su_app);
+
+		String[] packages =
+		{
+				"eu.chainfire.supersu", "eu.chainfire.supersu.pro",
+				"com.koushikdutta.superuser", "com.noshufou.android.su"
+		};
 		PackageManager pm = activity.getPackageManager();
-		int i,l=packages.length;String superuser=null;
-		
-		for(i=0;i<l;i++)
+		int i, l = packages.length;
+		String superuser = null;
+
+		for (i = 0; i < l; i++)
 		{
 			try
 			{
-				ApplicationInfo info = pm.getApplicationInfo(packages[i], 0);//Testing method by SArnab©®@XDA. Tweaked by me. Thanks:)
+				ApplicationInfo info = pm.getApplicationInfo(packages[i], 0);// Testing
+																				// method
+																				// by
+																				// SArnab©®@XDA.
+																				// Tweaked
+																				// by
+																				// me.
+																				// Thanks:)
 				PackageInfo info2 = pm.getPackageInfo(packages[i], 0);
-				superuser=pm.getApplicationLabel(info).toString() + " " + info2.versionName;
+				superuser = pm.getApplicationLabel(info).toString() + " "
+						+ info2.versionName;
 				break;
 			}
-			catch(PackageManager.NameNotFoundException e)
+			catch (PackageManager.NameNotFoundException e)
 			{
 				continue;
 			}
 		}
-		
-		if(superuser!=null)
+
+		if (superuser != null)
 		{
-			setText(su_app,"SUPERUSER APP : "+superuser);
+			setText(su_app, "SUPERUSER APP : " + superuser);
 		}
 		else
 		{
 			su_alternative(su_app);
 		}
 	}
-	
 
 	private static void su_alternative(TextView su_app)
 	{
 		String line;
 		try
 		{
-			Process p = Runtime.getRuntime().exec("su -v");//Superuser version
-			InputStreamReader t = new InputStreamReader(p.getInputStream());			
+			Process p = Runtime.getRuntime().exec("su -v");// Superuser version
+			InputStreamReader t = new InputStreamReader(p.getInputStream());
 			BufferedReader in = new BufferedReader(t);
-			line=in.readLine();
-			
-			char[] chars=line.toCharArray();
-			boolean flag=false;//Check if su -v returns the package name instead of just the version number
-			for(char c:chars)
+			line = in.readLine();
+
+			char[] chars = line.toCharArray();
+			boolean flag = false;// Check if su -v returns the package name
+									// instead of just the version number
+			for (char c : chars)
 			{
-				if(Character.isLetter(c))
+				if (Character.isLetter(c))
 				{
-					flag=true;
+					flag = true;
 				}
 			}
-			if(!flag)
+			if (!flag)
 			{
-				line="Unknown Superuser";
+				line = "Unknown Superuser";
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
-			line="Unknown Superuser";
+			line = "Unknown Superuser";
 		}
-		
-		setText(su_app,"SUPERUSER APP : "+line);
-		
+
+		setText(su_app, "SUPERUSER APP : " + line);
+
 	}
-	
-	
+
 }
