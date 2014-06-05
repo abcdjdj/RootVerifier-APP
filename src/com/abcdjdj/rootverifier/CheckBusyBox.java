@@ -19,10 +19,11 @@ along with Root Verifier. If not, see <http://www.gnu.org/licenses/>.*/
 
 package com.abcdjdj.rootverifier;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import static com.abcdjdj.rootverifier.Utils.MiscFunctions.*;
+import static com.abcdjdj.rootverifier.Utils.MiscFunctions.activity;
+import static com.abcdjdj.rootverifier.Utils.MiscFunctions.setText;
+
+import java.util.Scanner;
+
 import android.widget.TextView;
 
 public class CheckBusyBox implements Runnable
@@ -44,19 +45,18 @@ public class CheckBusyBox implements Runnable
 	private static void busybox()
 	{
 		TextView z = (TextView) activity.findViewById(R.id.busyboxid);
-		String line = null;
 		char n[] = null;
+		String line = null;
 
 		try
 		{
 
 			Process p = Runtime.getRuntime().exec("busybox");
-			InputStream a = p.getInputStream();
-			InputStreamReader read = new InputStreamReader(a);
-			BufferedReader in = new BufferedReader(read);
+			Scanner in = new Scanner(p.getInputStream());
 
-			busybox: while ((line = in.readLine()) != null)
+			busybox: while (in.hasNextLine())
 			{
+				line = in.nextLine();
 				n = line.toCharArray();
 
 				for (char c : n)
@@ -70,7 +70,8 @@ public class CheckBusyBox implements Runnable
 				}
 
 			}
-
+			
+			in.close();
 			setText(z, new StringBuilder("BUSYBOX INSTALLED - ").append(line));
 
 		}
