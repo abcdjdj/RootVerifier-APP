@@ -100,6 +100,7 @@ public class CheckRoot implements Runnable
 				pw = new PrintWriter(process.getOutputStream());
 				pw.println("cd system");
 				pw.println("rm abc.txt");
+				pw.println("mount -o ro,remount /system");
 				pw.println("exit");
 				pw.close();
 				process.waitFor();
