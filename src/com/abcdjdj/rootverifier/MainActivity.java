@@ -30,6 +30,7 @@ import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.Menu;
@@ -137,13 +138,23 @@ public class MainActivity extends Activity
 		alert.show();
 	}
 
+	@SuppressWarnings("deprecation")
 	private void resizeBackground()
 	{
-		Display display = getWindowManager().getDefaultDisplay();
-		Point size = new Point();
-		display.getSize(size);
-		int width = size.x;
-		int height = size.y;
+		int width,height;
+		if (Build.VERSION.SDK_INT >= 13) //Backward compatibility
+		{
+			Display display = getWindowManager().getDefaultDisplay();
+			Point size = new Point();
+			display.getSize(size);
+			width = size.x;
+			height = size.y;
+		}
+		else
+		{
+			width = getWindowManager().getDefaultDisplay().getWidth();
+			height = getWindowManager().getDefaultDisplay().getHeight();
+		}
 
 		if (width >= 512 && height >= 512)
 			return;
@@ -155,7 +166,11 @@ public class MainActivity extends Activity
 
 		dr = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(
 				bitmap, width, height, true));
-		layout.setBackground(dr);
+		
+		if (Build.VERSION.SDK_INT >= 16) //Backward compatibility
+			layout.setBackground(dr);
+		else
+			layout.setBackgroundDrawable(dr);
 	}
 
 }
