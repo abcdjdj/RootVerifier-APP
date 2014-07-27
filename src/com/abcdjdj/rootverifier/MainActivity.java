@@ -22,6 +22,7 @@ package com.abcdjdj.rootverifier;
 import static com.abcdjdj.rootverifier.Utils.MiscFunctions.activity;
 import static com.abcdjdj.rootverifier.Utils.MiscFunctions.rateOnPS;
 import static com.abcdjdj.rootverifier.Utils.MiscFunctions.setDeviceName;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -138,6 +139,7 @@ public class MainActivity extends Activity
 		alert.show();
 	}
 
+	@SuppressLint("NewApi")
 	@SuppressWarnings("deprecation")
 	private void resizeBackground()
 	{
