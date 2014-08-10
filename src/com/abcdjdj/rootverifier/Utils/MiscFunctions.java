@@ -76,7 +76,7 @@ public class MiscFunctions
 	{
 		TextView c = (TextView) activity.findViewById(R.id.devicemodel);
 
-		StringBuilder x = new StringBuilder("DEVICE:- ");
+		StringBuilder x = new StringBuilder("DEVICE : ");
 		x.append(android.os.Build.MANUFACTURER).append(" ")
 				.append(android.os.Build.MODEL);
 
