@@ -5,7 +5,7 @@
     <string name="exit">Exit</string>
     <string name="hello_world">Hello world!</string>
     <string name="Check">Check</string>
-    <string name="Status">SUPERUSER : NOT YET CHECKED</string>
+    <string name="Status">ROOT STATUS : NOT YET CHECKED</string>
     <string name="Welcome">Welcome!</string>
     <string name="Description">To verify root access, please click on the Check button.</string>
     <string name="rate">Rate on Play Store</string>
