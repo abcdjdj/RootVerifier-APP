@@ -29,13 +29,11 @@ import java.util.Scanner;
 
 import android.widget.TextView;
 
-public class CheckRoot implements Runnable
-{
+public class CheckRoot implements Runnable {
 
 	Thread t, check_su_app, check_busybox;
 
-	CheckRoot(Thread t1, Thread t2)
-	{
+	CheckRoot(Thread t1, Thread t2) {
 		t = new Thread(this, "CheckRoot");
 		t.start();
 		check_busybox = t1;
@@ -43,31 +41,25 @@ public class CheckRoot implements Runnable
 	}
 
 	@Override
-	public void run()
-	{
+	public void run() {
 		checkRoot();
-		try
-		{
+		try {
 			check_busybox.join();
 			check_su_app.join();
-		}
-		catch (InterruptedException e)
-		{
+		} catch (InterruptedException e) {
 		}
 		MainActivity.dialog.dismiss();
 		showToast("Checking complete.");
 
 	}
 
-	private static void checkRoot()
-	{
+	private static void checkRoot() {
 		TextView root = (TextView) activity.findViewById(R.id.status);
 
 		if (suAvailable())// Checks if su binary is available
 		{
 
-			try
-			{
+			try {
 
 				Process process = Runtime.getRuntime().exec("su");
 				PrintWriter pw = new PrintWriter(process.getOutputStream(),
@@ -86,9 +78,7 @@ public class CheckRoot implements Runnable
 				{
 					setText(root, "DEVICE IS ROOTED");
 
-				}
-				else
-				{
+				} else {
 
 					setText(root,
 							"ROOT PERMISSION NOT GRANTED OR SUPERUSER APP MISSING");
@@ -106,56 +96,43 @@ public class CheckRoot implements Runnable
 				process.waitFor();
 				process.destroy();
 
-			}
-			catch (Exception e)
-			{
+			} catch (Exception e) {
 
 				setText(root,
 						"ROOT PERMISSION NOT GRANTED OR SUPERUSER APP MISSING");
 			}
-		}
-		else
-		{
+		} else {
 
 			setText(root, "NOT ROOTED");
 		}
 
 	}
 
-	private static boolean suAvailable()
-	{
+	private static boolean suAvailable() {
 		boolean flag;
-		try
-		{
+		try {
 			Process p = Runtime.getRuntime().exec("su");
 			p.destroy();
 			flag = true;
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			flag = false;
 		}
 		return flag;
 	}
 
-	private static boolean checkFile() throws IOException
-	{
+	private static boolean checkFile() throws IOException {
 		boolean flag = false;
-		try
-		{
+		try {
 			File x = new File("/system/abc.txt");
 			flag = x.exists();
 
-		}
-		catch (SecurityException e)
-		{
+		} catch (SecurityException e) {
 			showToast("Checking by alternate method..");
 			Process p = Runtime.getRuntime().exec("ls /system");
 			Scanner sc = new Scanner(p.getInputStream());
 			String line = null;
 
-			while (sc.hasNextLine())
-			{
+			while (sc.hasNextLine()) {
 				line = sc.nextLine();
 				if (line.contains("abc.txt"))
 					;

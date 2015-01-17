@@ -28,52 +28,41 @@ import android.widget.Toast;
 import com.abcdjdj.rootverifier.MainActivity;
 import com.abcdjdj.rootverifier.R;
 
-public class MiscFunctions
-{
+public class MiscFunctions {
 	public static MainActivity activity;
 	public static TextView txtview;
 	public static CharSequence msg, msg2;
 
-	public synchronized static void setText(TextView t, CharSequence x)
-	{
+	public synchronized static void setText(TextView t, CharSequence x) {
 		txtview = t;
 		msg = x;
-		Runnable r = new Runnable()
-		{
+		Runnable r = new Runnable() {
 			@Override
-			public void run()
-			{
+			public void run() {
 				txtview.setText(msg);
 				txtview.invalidate();
 
 			}
 		};
 		activity.runOnUiThread(r);
-		try
-		{
+		try {
 			Thread.sleep(800);
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 		}
 	}
 
-	public synchronized static void showToast(CharSequence x)
-	{
+	public synchronized static void showToast(CharSequence x) {
 		msg2 = x;
-		Runnable r = new Runnable()
-		{
+		Runnable r = new Runnable() {
 			@Override
-			public void run()
-			{
+			public void run() {
 				Toast.makeText(activity, msg2, Toast.LENGTH_LONG).show();
 			}
 		};
 		activity.runOnUiThread(r);
 	}
 
-	public static void setDeviceName()
-	{
+	public static void setDeviceName() {
 		TextView c = (TextView) activity.findViewById(R.id.devicemodel);
 
 		StringBuilder x = new StringBuilder("DEVICE : ");
@@ -84,24 +73,18 @@ public class MiscFunctions
 
 	}
 
-	public static void rateOnPS()
-	{
+	public static void rateOnPS() {
 		Intent intent = null;
-		try
-		{
+		try {
 			intent = new Intent(Intent.ACTION_VIEW,
 					Uri.parse("market://details?id=com.abcdjdj.rootverifier"));
 			activity.startActivity(intent);
-		}
-		catch (ActivityNotFoundException e)
-		{
+		} catch (ActivityNotFoundException e) {
 			intent = new Intent(
 					Intent.ACTION_VIEW,
 					Uri.parse("https://play.google.com/store/apps/details?id=com.abcdjdj.rootverifier"));
 			activity.startActivity(intent);
-		}
-		catch (Exception ex)
-		{
+		} catch (Exception ex) {
 			Toast.makeText(activity, "Unknown error occured", Toast.LENGTH_LONG)
 					.show();
 

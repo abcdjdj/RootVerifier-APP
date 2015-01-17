@@ -26,57 +26,47 @@ import java.util.Scanner;
 
 import android.widget.TextView;
 
-public class CheckBusyBox implements Runnable
-{
+public class CheckBusyBox implements Runnable {
 	Thread t;
 
-	CheckBusyBox()
-	{
+	CheckBusyBox() {
 		t = new Thread(this, "CheckBusyBox");
 		t.start();
 	}
 
 	@Override
-	public void run()
-	{
+	public void run() {
 		busybox();
 	}
 
-	private static void busybox()
-	{
+	private static void busybox() {
 		TextView z = (TextView) activity.findViewById(R.id.busyboxid);
 		char n[] = null;
 		String line = null;
 
-		try
-		{
+		try {
 
 			Process p = Runtime.getRuntime().exec("busybox");
 			Scanner in = new Scanner(p.getInputStream());
 
-			busybox: while (in.hasNextLine())
-			{
+			busybox: while (in.hasNextLine()) {
 				line = in.nextLine();
 				n = line.toCharArray();
 
-				for (char c : n)
-				{
+				for (char c : n) {
 
-					if (Character.isDigit(c))
-					{
+					if (Character.isDigit(c)) {
 						break busybox;
 
 					}
 				}
 
 			}
-			
+
 			in.close();
 			setText(z, new StringBuilder("BUSYBOX INSTALLED - ").append(line));
 
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			setText(z, "BUSYBOX NOT INSTALLED OR NOT SYMLINKED");
 		}
 	}

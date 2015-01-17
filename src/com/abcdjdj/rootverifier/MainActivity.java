@@ -46,47 +46,41 @@ import android.widget.TextView;
  * @version - V1.5
  */
 
-public class MainActivity extends Activity
-{
+public class MainActivity extends Activity {
 
 	static ProgressDialog dialog;
 
 	// If the file exists, then no need to ask again else ask.
 	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
 		onStartUp();
 	}
 
-	public void onStartUp()
-	{
+	public void onStartUp() {
 
 		activity = this;// activity is a static field in the Utils.MiscFunctions
 						// class
 		setDeviceName();// Calling the function to display the current device
 						// model on startup of the app.
 		resizeBackground();
-		
+
 		setFont();
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
+	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item)
-	{
+	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
-		switch (item.getItemId())
-		{
+		switch (item.getItemId()) {
 		case R.id.exit:
 			finish();
 			break;
@@ -106,8 +100,7 @@ public class MainActivity extends Activity
 		return true;
 	}
 
-	public void Check(View v)
-	{
+	public void Check(View v) {
 
 		dialog = ProgressDialog.show(this, "Verifying root..",
 				"Checking. Please wait...", false);
@@ -117,18 +110,15 @@ public class MainActivity extends Activity
 	}
 
 	@Override
-	public void onDestroy()
-	{
+	public void onDestroy() {
 		super.onDestroy();
 
-		if (dialog != null)
-		{
+		if (dialog != null) {
 			dialog.dismiss();
 		}
 	}
 
-	private void about_app()
-	{
+	private void about_app() {
 		StringBuilder msg = new StringBuilder(
 				"Root Verifier is a free software: you can redistribute it and/or modify ")
 				.append("it under the terms of the GNU General Public License as published by ")
@@ -145,19 +135,16 @@ public class MainActivity extends Activity
 
 	@SuppressLint("NewApi")
 	@SuppressWarnings("deprecation")
-	private void resizeBackground()
-	{
-		int width,height;
-		if (Build.VERSION.SDK_INT >= 13) //Backward compatibility
+	private void resizeBackground() {
+		int width, height;
+		if (Build.VERSION.SDK_INT >= 13) // Backward compatibility
 		{
 			Display display = getWindowManager().getDefaultDisplay();
 			Point size = new Point();
 			display.getSize(size);
 			width = size.x;
 			height = size.y;
-		}
-		else
-		{
+		} else {
 			width = getWindowManager().getDefaultDisplay().getWidth();
 			height = getWindowManager().getDefaultDisplay().getHeight();
 		}
@@ -172,22 +159,24 @@ public class MainActivity extends Activity
 
 		dr = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(
 				bitmap, width, height, true));
-		
-		if (Build.VERSION.SDK_INT >= 16) //Backward compatibility
+
+		if (Build.VERSION.SDK_INT >= 16) // Backward compatibility
 			layout.setBackground(dr);
 		else
 			layout.setBackgroundDrawable(dr);
 	}
-	
-	private void setFont()
-	{
+
+	private void setFont() {
 		Typeface font = Typeface.createFromAsset(getAssets(), "font.ttf");
-		TextView t[] = { (TextView)findViewById(R.id.su_app), (TextView)findViewById(R.id.textView2) , (TextView)findViewById(R.id.textView3),
-				(TextView)findViewById(R.id.status), (TextView)findViewById(R.id.busyboxid), (TextView)findViewById(R.id.devicemodel)				
-		};
-		
-		for(TextView i : t)
-		i.setTypeface(font);
+		TextView t[] = { (TextView) findViewById(R.id.su_app),
+				(TextView) findViewById(R.id.textView2),
+				(TextView) findViewById(R.id.textView3),
+				(TextView) findViewById(R.id.status),
+				(TextView) findViewById(R.id.busyboxid),
+				(TextView) findViewById(R.id.devicemodel) };
+
+		for (TextView i : t)
+			i.setTypeface(font);
 	}
 
 }

@@ -30,39 +30,31 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.widget.TextView;
 
-public class CheckSuApp implements Runnable
-{
+public class CheckSuApp implements Runnable {
 	Thread t;
 
-	CheckSuApp()
-	{
+	CheckSuApp() {
 		t = new Thread(this, "CheckSuApp");
 		t.start();
 	}
 
 	@Override
-	public void run()
-	{
+	public void run() {
 		su_app();
 	}
 
-	private static void su_app()
-	{
+	private static void su_app() {
 		TextView su_app = (TextView) activity.findViewById(R.id.su_app);
 
-		String[] packages =
-		{
-				"eu.chainfire.supersu", "eu.chainfire.supersu.pro",
-				"com.koushikdutta.superuser", "com.noshufou.android.su"
-		};
+		String[] packages = { "eu.chainfire.supersu",
+				"eu.chainfire.supersu.pro", "com.koushikdutta.superuser",
+				"com.noshufou.android.su" };
 		PackageManager pm = activity.getPackageManager();
 		int i, l = packages.length;
 		String superuser = null;
 
-		for (i = 0; i < l; i++)
-		{
-			try
-			{
+		for (i = 0; i < l; i++) {
+			try {
 				ApplicationInfo info = pm.getApplicationInfo(packages[i], 0);// Testing
 																				// method
 																				// by
@@ -75,28 +67,21 @@ public class CheckSuApp implements Runnable
 				superuser = pm.getApplicationLabel(info).toString() + " "
 						+ info2.versionName;
 				break;
-			}
-			catch (PackageManager.NameNotFoundException e)
-			{
+			} catch (PackageManager.NameNotFoundException e) {
 				continue;
 			}
 		}
 
-		if (superuser != null)
-		{
+		if (superuser != null) {
 			setText(su_app, "SUPERUSER APP : " + superuser);
-		}
-		else
-		{
+		} else {
 			su_alternative(su_app);
 		}
 	}
 
-	private static void su_alternative(TextView su_app)
-	{
+	private static void su_alternative(TextView su_app) {
 		String line;
-		try
-		{
+		try {
 			Process p = Runtime.getRuntime().exec("su -v");// Superuser version
 			InputStreamReader t = new InputStreamReader(p.getInputStream());
 			BufferedReader in = new BufferedReader(t);
@@ -105,20 +90,15 @@ public class CheckSuApp implements Runnable
 			char[] chars = line.toCharArray();
 			boolean flag = false;// Check if su -v returns the package name
 									// instead of just the version number
-			for (char c : chars)
-			{
-				if (Character.isLetter(c))
-				{
+			for (char c : chars) {
+				if (Character.isLetter(c)) {
 					flag = true;
 				}
 			}
-			if (!flag)
-			{
+			if (!flag) {
 				line = "Unknown Superuser";
 			}
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			line = "Unknown Superuser";
 		}
 
