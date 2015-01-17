@@ -50,7 +50,6 @@ public class MainActivity extends Activity {
 
 	static ProgressDialog dialog;
 
-	// If the file exists, then no need to ask again else ask.
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -160,10 +159,11 @@ public class MainActivity extends Activity {
 		dr = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(
 				bitmap, width, height, true));
 
-		if (Build.VERSION.SDK_INT >= 16) // Backward compatibility
+		if (Build.VERSION.SDK_INT >= 16) { // Backward compatibility
 			layout.setBackground(dr);
-		else
+		} else {
 			layout.setBackgroundDrawable(dr);
+		}
 	}
 
 	private void setFont() {
@@ -175,8 +175,9 @@ public class MainActivity extends Activity {
 				(TextView) findViewById(R.id.busyboxid),
 				(TextView) findViewById(R.id.devicemodel) };
 
-		for (TextView i : t)
+		for (TextView i : t) {
 			i.setTypeface(font);
+		}
 	}
 
 }

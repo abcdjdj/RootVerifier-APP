@@ -30,17 +30,14 @@ import com.abcdjdj.rootverifier.R;
 
 public class MiscFunctions {
 	public static MainActivity activity;
-	public static TextView txtview;
-	public static CharSequence msg, msg2;
 
-	public synchronized static void setText(TextView t, CharSequence x) {
-		txtview = t;
-		msg = x;
+	public synchronized static void setText(final TextView t, final CharSequence x) {
+		
 		Runnable r = new Runnable() {
 			@Override
 			public void run() {
-				txtview.setText(msg);
-				txtview.invalidate();
+				t.setText(x);
+				t.invalidate();
 
 			}
 		};
@@ -51,12 +48,12 @@ public class MiscFunctions {
 		}
 	}
 
-	public synchronized static void showToast(CharSequence x) {
-		msg2 = x;
+	public synchronized static void showToast(final CharSequence x) {
+		
 		Runnable r = new Runnable() {
 			@Override
 			public void run() {
-				Toast.makeText(activity, msg2, Toast.LENGTH_LONG).show();
+				Toast.makeText(activity, x, Toast.LENGTH_LONG).show();
 			}
 		};
 		activity.runOnUiThread(r);

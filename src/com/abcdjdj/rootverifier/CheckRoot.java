@@ -56,8 +56,7 @@ public class CheckRoot implements Runnable {
 	private static void checkRoot() {
 		TextView root = (TextView) activity.findViewById(R.id.status);
 
-		if (suAvailable())// Checks if su binary is available
-		{
+		if (suAvailable()) { // Checks if su binary is available
 
 			try {
 
@@ -73,9 +72,9 @@ public class CheckRoot implements Runnable {
 				pw.close();
 				process.waitFor();
 
-				if (checkFile())// Checks if the file has been successfully
-								// created
-				{
+				if (checkFile()) { // Checks if the file has been successfully
+									// created
+
 					setText(root, "DEVICE IS ROOTED");
 
 				} else {
