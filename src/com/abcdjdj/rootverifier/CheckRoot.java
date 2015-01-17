@@ -134,9 +134,7 @@ public class CheckRoot implements Runnable {
 
 			while (sc.hasNextLine()) {
 				line = sc.nextLine();
-				if (line.contains("abc.txt"))
-					;
-				{
+				if (line.contains("abc.txt")) {
 					flag = true;
 					break;
 				}
