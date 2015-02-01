@@ -29,7 +29,6 @@ import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.Point;
-import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -39,7 +38,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 /**
  * @author - Madhav Kanbur (abcdjdj)
@@ -65,8 +63,6 @@ public class MainActivity extends Activity {
 		setDeviceName();// Calling the function to display the current device
 						// model on startup of the app.
 		resizeBackground();
-
-		setFont();
 	}
 
 	@Override
@@ -165,19 +161,4 @@ public class MainActivity extends Activity {
 			layout.setBackgroundDrawable(dr);
 		}
 	}
-
-	private void setFont() {
-		Typeface font = Typeface.createFromAsset(getAssets(), "font.ttf");
-		TextView t[] = { (TextView) findViewById(R.id.su_app),
-				(TextView) findViewById(R.id.textView2),
-				(TextView) findViewById(R.id.textView3),
-				(TextView) findViewById(R.id.status),
-				(TextView) findViewById(R.id.busyboxid),
-				(TextView) findViewById(R.id.devicemodel) };
-
-		for (TextView i : t) {
-			i.setTypeface(font);
-		}
-	}
-
 }
