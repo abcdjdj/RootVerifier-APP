@@ -65,7 +65,7 @@ public class CheckRoot implements Runnable {
 						true);
 
 				// CREATING A DUMMY FILE in /system called abc.txt
-				pw.println("mount -o remount rw /system/");
+				pw.println("mount -o remount,rw /system");
 				pw.println("cd system");
 				pw.println("echo \"ABC\" > abc.txt");
 				pw.println("exit");
