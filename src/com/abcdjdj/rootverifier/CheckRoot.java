@@ -66,7 +66,7 @@ public class CheckRoot implements Runnable {
 
 				// CREATING A DUMMY FILE in /system called abc.txt
 				pw.println("mount -o remount,rw /system");
-				pw.println("cd system");
+				pw.println("cd /system");
 				pw.println("echo \"ABC\" > abc.txt");
 				pw.println("exit");
 				pw.close();
@@ -87,7 +87,7 @@ public class CheckRoot implements Runnable {
 				// DELETES THE DUMMY FILE IF PRESENT
 				process = Runtime.getRuntime().exec("su");
 				pw = new PrintWriter(process.getOutputStream());
-				pw.println("cd system");
+				pw.println("cd /system");
 				pw.println("rm abc.txt");
 				pw.println("mount -o ro,remount /system");
 				pw.println("exit");
