@@ -65,8 +65,8 @@ public class CheckRoot implements Runnable {
 						true);
 
 				// CREATING A DUMMY FILE in /system called abc.txt
-				pw.println("mount -o remount,rw /system");
-				pw.println("cd system");
+				pw.println("mount -o remount,rw /");
+				pw.println("cd /");
 				pw.println("echo \"ABC\" > abc.txt");
 				pw.println("exit");
 				pw.close();
@@ -87,9 +87,9 @@ public class CheckRoot implements Runnable {
 				// DELETES THE DUMMY FILE IF PRESENT
 				process = Runtime.getRuntime().exec("su");
 				pw = new PrintWriter(process.getOutputStream());
-				pw.println("cd system");
+				pw.println("cd /");
 				pw.println("rm abc.txt");
-				pw.println("mount -o ro,remount /system");
+				pw.println("mount -o ro,remount /");
 				pw.println("exit");
 				pw.close();
 				process.waitFor();
@@ -122,12 +122,12 @@ public class CheckRoot implements Runnable {
 	private static boolean checkFile() throws IOException {
 		boolean flag = false;
 		try {
-			File x = new File("/system/abc.txt");
+			File x = new File("/abc.txt");
 			flag = x.exists();
 
 		} catch (SecurityException e) {
 			showToast("Checking by alternate method..");
-			Process p = Runtime.getRuntime().exec("ls /system");
+			Process p = Runtime.getRuntime().exec("ls /");
 			Scanner sc = new Scanner(p.getInputStream());
 			String line = null;
 
