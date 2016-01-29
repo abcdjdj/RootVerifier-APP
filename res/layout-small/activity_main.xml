@@ -13,8 +13,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity"
-    tools:ignore="HardcodedText" >
+    tools:context=".MainActivity" >
 
     <TextView
         android:id="@+id/textView3"
@@ -45,7 +44,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
         android:freezesText="true"
-        android:text="BUSYBOX : NOT YET CHECKED"
+        android:text="@string/busybox_default"
         android:textColor="@android:color/white" />
 
     <TextView
@@ -80,7 +79,7 @@
         android:textColor="@android:color/white"
         android:layout_marginTop="29dp"
         android:freezesText="true"
-        android:text="SUPERUSER APP : NOT YET CHECKED" />
+        android:text="@string/su_app_default" />
 
     <TextView
         android:id="@+id/devicemodel"
@@ -88,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/su_app"
         android:layout_centerHorizontal="true"
-        android:text="DEVICE:- "
+        android:text="@string/dev_name"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>

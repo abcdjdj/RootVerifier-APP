@@ -97,8 +97,8 @@ public class MainActivity extends Activity {
 
 	public void Check(View v) {
 
-		dialog = ProgressDialog.show(this, "Verifying root..",
-				"Checking. Please wait...", false);
+		dialog = ProgressDialog.show(this, getString(R.string.verifying),
+				getString(R.string.wait), false);
 		dialog.setCanceledOnTouchOutside(false);
 		new CheckRoot(new CheckBusyBox().t, new CheckSuApp().t);
 
