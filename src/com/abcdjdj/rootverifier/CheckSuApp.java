@@ -55,14 +55,7 @@ public class CheckSuApp implements Runnable {
 
 		for (i = 0; i < l; i++) {
 			try {
-				ApplicationInfo info = pm.getApplicationInfo(packages[i], 0);// Testing
-																				// method
-																				// by
-																				// SArnab©®@XDA.
-																				// Tweaked
-																				// by
-																				// me.
-																				// Thanks:)
+				ApplicationInfo info = pm.getApplicationInfo(packages[i], 0);
 				PackageInfo info2 = pm.getPackageInfo(packages[i], 0);
 				superuser = pm.getApplicationLabel(info).toString() + " "
 						+ info2.versionName;
@@ -73,7 +66,7 @@ public class CheckSuApp implements Runnable {
 		}
 
 		if (superuser != null) {
-			setText(su_app, "SUPERUSER APP : " + superuser);
+			setText(su_app, activity.getString(R.string.su_app) + " " + superuser);
 		} else {
 			su_alternative(su_app);
 		}
@@ -96,13 +89,13 @@ public class CheckSuApp implements Runnable {
 				}
 			}
 			if (!flag) {
-				line = "Unknown Superuser";
+				line = activity.getString(R.string.app_unknown);
 			}
 		} catch (Exception e) {
-			line = "Unknown Superuser";
+			line =  activity.getString(R.string.app_unknown);
 		}
 
-		setText(su_app, "SUPERUSER APP : " + line);
+		setText(su_app, activity.getString(R.string.su_app) + " " +  line);
 
 	}
 

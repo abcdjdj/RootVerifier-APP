@@ -49,7 +49,7 @@ public class CheckRoot implements Runnable {
 		} catch (InterruptedException e) {
 		}
 		MainActivity.dialog.dismiss();
-		showToast("Checking complete.");
+		showToast(activity.getString(R.string.check_complete));
 
 	}
 
@@ -75,13 +75,12 @@ public class CheckRoot implements Runnable {
 				if (checkFile()) { // Checks if the file has been successfully
 									// created
 
-					setText(root, "DEVICE IS ROOTED");
+					setText(root, activity.getString(R.string.rooted));
 
 				} else {
 
-					setText(root,
-							"ROOT PERMISSION NOT GRANTED OR SUPERUSER APP MISSING");
-
+					setText(root, activity.getString(R.string.permission_denied));
+							
 				}
 
 				// DELETES THE DUMMY FILE IF PRESENT
@@ -97,12 +96,12 @@ public class CheckRoot implements Runnable {
 
 			} catch (Exception e) {
 
-				setText(root,
-						"ROOT PERMISSION NOT GRANTED OR SUPERUSER APP MISSING");
+				setText(root, activity.getString(R.string.permission_denied));
+				
 			}
 		} else {
 
-			setText(root, "NOT ROOTED");
+			setText(root, activity.getString(R.string.not_rooted));
 		}
 
 	}
@@ -126,7 +125,7 @@ public class CheckRoot implements Runnable {
 			flag = x.exists();
 
 		} catch (SecurityException e) {
-			showToast("Checking by alternate method..");
+			showToast(activity.getString(R.string.alt_method));
 			Process p = Runtime.getRuntime().exec("ls /");
 			Scanner sc = new Scanner(p.getInputStream());
 			String line = null;

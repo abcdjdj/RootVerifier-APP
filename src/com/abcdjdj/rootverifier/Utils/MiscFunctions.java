@@ -62,8 +62,8 @@ public class MiscFunctions {
 	public static void setDeviceName() {
 		TextView c = (TextView) activity.findViewById(R.id.devicemodel);
 
-		StringBuilder x = new StringBuilder("DEVICE : ");
-		x.append(android.os.Build.MANUFACTURER).append(" ")
+		StringBuilder x = new StringBuilder(activity.getString(R.string.dev_name));
+		x.append(" ").append(android.os.Build.MANUFACTURER).append(" ")
 				.append(android.os.Build.MODEL);
 
 		c.setText(x);

@@ -64,10 +64,10 @@ public class CheckBusyBox implements Runnable {
 			}
 
 			in.close();
-			setText(z, new StringBuilder("BUSYBOX INSTALLED - ").append(line));
+			setText(z, new StringBuilder(activity.getString(R.string.busybox)).append(" ").append(line));
 
 		} catch (Exception e) {
-			setText(z, "BUSYBOX NOT INSTALLED OR NOT SYMLINKED");
+			setText(z, activity.getString(R.string.no_busybox));
 		}
 	}
 
