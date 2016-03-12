@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Root Verifier</string>
+    
+    <string name="Status">STATUT ROOT : NON VÉRIFIÉ</string>
+    <string name="rooted">APPAREIL ROOTÉ</string>
+    <string name="not_rooted">APPAREIL NON ROOTÉ</string>
+    <string name="permission_denied">AUTORISATION ROOT NON ACCORDÉE OU APPLICATION SUPERUSER MANQUANTE</string>    
+    <string name="alt_method">Vérification via une méthode alternative</string>
+    <string name="busybox_default">BUSYBOX : NON VÉRIFIÉ</string>
+    <string name="yes_busybox">BUSYBOX INSTALLÉ :</string> 
+    <string name="no_busybox">BUSYBOX NON INSTALLÉ OU NON LIÉ</string>  
+    <string name="su_app_default">APPLICATION SUPERUSER : NON VÉRIFIÉE</string>
+    <string name="su_app">APPLICATION SUPERUSER :</string>  
+    
+    <string name="app_unknown">APPLICATION SUPERUSER : Inconnue</string>  
+    <string name="verifying">Vérification root...</string>
+    <string name="wait">Vérification, veuillez patienter...</string>
+    <string name="check_complete">Vérification terminée.</string> 
+    
+    <string name="Welcome">Bienvenue !</string>
+    <string name="Description">Veuillez appuyer sur le bouton Vérifier pour analyser l\'accès root.</string>
+    <string name="rate">Évaluer</string>
+    <string name="about">À propos</string>
+    <string name="dev_name">APPAREIL :</string>
+    <string name="exit">Quitter</string>
+    <string name="Check">Vérifier</string>
+  
+</resources>

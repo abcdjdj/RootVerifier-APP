@@ -1,0 +1,307 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .gitattributes
+* .gitignore
+* .gradle/
+* .gradle/2.8/
+* .gradle/2.8/taskArtifacts/
+* .gradle/2.8/taskArtifacts/cache.properties
+* .gradle/2.8/taskArtifacts/cache.properties.lock
+* .gradle/2.8/taskArtifacts/fileHashes.bin
+* .gradle/2.8/taskArtifacts/fileSnapshots.bin
+* .gradle/2.8/taskArtifacts/outputFileStates.bin
+* .gradle/2.8/taskArtifacts/taskArtifacts.bin
+* .idea/
+* .idea/.name
+* .idea/compiler.xml
+* .idea/copyright/
+* .idea/copyright/profiles_settings.xml
+* .idea/misc.xml
+* .idea/modules.xml
+* .idea/vcs.xml
+* .idea/workspace.xml
+* LICENSE.txt
+* README
+* RootVerifier-APP.iml
+* app/
+* app/app.iml
+* app/build.gradle
+* app/build/
+* app/build/generated/
+* app/build/generated/source/
+* app/build/generated/source/buildConfig/
+* app/build/generated/source/buildConfig/androidTest/
+* app/build/generated/source/buildConfig/androidTest/debug/
+* app/build/generated/source/buildConfig/androidTest/debug/com/
+* app/build/generated/source/buildConfig/androidTest/debug/com/abcdjdj/
+* app/build/generated/source/buildConfig/androidTest/debug/com/abcdjdj/rootverifier/
+* app/build/generated/source/buildConfig/androidTest/debug/com/abcdjdj/rootverifier/test/
+* app/build/generated/source/buildConfig/androidTest/debug/com/abcdjdj/rootverifier/test/BuildConfig.java
+* app/build/generated/source/buildConfig/debug/
+* app/build/generated/source/buildConfig/debug/com/
+* app/build/generated/source/buildConfig/debug/com/abcdjdj/
+* app/build/generated/source/buildConfig/debug/com/abcdjdj/rootverifier/
+* app/build/generated/source/buildConfig/debug/com/abcdjdj/rootverifier/BuildConfig.java
+* app/build/generated/source/r/
+* app/build/generated/source/r/debug/
+* app/build/generated/source/r/debug/com/
+* app/build/generated/source/r/debug/com/abcdjdj/
+* app/build/generated/source/r/debug/com/abcdjdj/rootverifier/
+* app/build/generated/source/r/debug/com/abcdjdj/rootverifier/R.java
+* app/build/intermediates/
+* app/build/intermediates/blame/
+* app/build/intermediates/blame/res/
+* app/build/intermediates/blame/res/debug/
+* app/build/intermediates/blame/res/debug/multi/
+* app/build/intermediates/blame/res/debug/multi/values-fr.json
+* app/build/intermediates/blame/res/debug/multi/values-sw720dp-land-v13.json
+* app/build/intermediates/blame/res/debug/multi/values-v11.json
+* app/build/intermediates/blame/res/debug/multi/values-v14.json
+* app/build/intermediates/blame/res/debug/multi/values.json
+* app/build/intermediates/blame/res/debug/single/
+* app/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json
+* app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json
+* app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json
+* app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json
+* app/build/intermediates/blame/res/debug/single/drawable.json
+* app/build/intermediates/blame/res/debug/single/layout-large-v4.json
+* app/build/intermediates/blame/res/debug/single/layout-normal-v4.json
+* app/build/intermediates/blame/res/debug/single/layout-small-v4.json
+* app/build/intermediates/blame/res/debug/single/layout-xlarge-v4.json
+* app/build/intermediates/blame/res/debug/single/menu.json
+* app/build/intermediates/classes/
+* app/build/intermediates/classes/debug/
+* app/build/intermediates/classes/debug/com/
+* app/build/intermediates/classes/debug/com/abcdjdj/
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/BuildConfig.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/CheckBusyBox.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/CheckRoot.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/CheckSuApp.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/MainActivity.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/R$attr.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/R$dimen.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/R$drawable.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/R$id.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/R$layout.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/R$menu.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/R$string.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/R$style.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/R.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/Utils/
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/Utils/MiscFunctions$1.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/Utils/MiscFunctions$2.class
+* app/build/intermediates/classes/debug/com/abcdjdj/rootverifier/Utils/MiscFunctions.class
+* app/build/intermediates/exploded-aar/
+* app/build/intermediates/exploded-aar/com.android.support/
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/AndroidManifest.xml
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aapt/
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aapt/AndroidManifest.xml
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/media/
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/media/MediaMetadataCompat.aidl
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/media/RatingCompat.aidl
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/media/session/
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/media/session/MediaSessionCompat.aidl
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/media/session/ParcelableVolumeInfo.aidl
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/media/session/PlaybackStateCompat.aidl
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/os/
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/aidl/android/support/v4/os/ResultReceiver.aidl
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/annotations.zip
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/classes.jar
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/
+* app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/internal_impl-23.2.1.jar
+* app/build/intermediates/incremental/
+* app/build/intermediates/incremental/compileDebugAidl/
+* app/build/intermediates/incremental/compileDebugAidl/dependency.store
+* app/build/intermediates/incremental/compileDebugAndroidTestAidl/
+* app/build/intermediates/incremental/compileDebugAndroidTestAidl/dependency.store
+* app/build/intermediates/incremental/mergeDebugAndroidTestAssets/
+* app/build/intermediates/incremental/mergeDebugAndroidTestAssets/merger.xml
+* app/build/intermediates/incremental/mergeDebugAndroidTestResources/
+* app/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml
+* app/build/intermediates/incremental/mergeDebugAssets/
+* app/build/intermediates/incremental/mergeDebugAssets/merger.xml
+* app/build/intermediates/incremental/mergeDebugJniLibFolders/
+* app/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml
+* app/build/intermediates/incremental/mergeDebugResources/
+* app/build/intermediates/incremental/mergeDebugResources/merger.xml
+* app/build/intermediates/manifest/
+* app/build/intermediates/manifest/androidTest/
+* app/build/intermediates/manifest/androidTest/debug/
+* app/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml
+* app/build/intermediates/manifests/
+* app/build/intermediates/manifests/full/
+* app/build/intermediates/manifests/full/debug/
+* app/build/intermediates/manifests/full/debug/AndroidManifest.xml
+* app/build/intermediates/pre-dexed/
+* app/build/intermediates/pre-dexed/debug/
+* app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.2.1_335f6e41d04d97080e68ce5b7781948f3830b712.jar
+* app/build/intermediates/pre-dexed/debug/debug_6016927d26263d0f7031f3421db5229c01ed5607.jar
+* app/build/intermediates/pre-dexed/debug/internal_impl-23.2.1_30c19ec76be1caddb7bc91e8e4281f915b12dfee.jar
+* app/build/intermediates/pre-dexed/debug/support-annotations-23.2.1_a1951760cb0a8a4f984ad11d925cb985dcd14262.jar
+* app/build/intermediates/res/
+* app/build/intermediates/res/merged/
+* app/build/intermediates/res/merged/debug/
+* app/build/intermediates/res/merged/debug/drawable-hdpi-v4/
+* app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_launcher.png
+* app/build/intermediates/res/merged/debug/drawable-mdpi-v4/
+* app/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_launcher.png
+* app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/
+* app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_launcher.png
+* app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/
+* app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/ic_launcher.png
+* app/build/intermediates/res/merged/debug/drawable/
+* app/build/intermediates/res/merged/debug/drawable/bg.png
+* app/build/intermediates/res/merged/debug/layout-large-v4/
+* app/build/intermediates/res/merged/debug/layout-large-v4/activity_main.xml
+* app/build/intermediates/res/merged/debug/layout-normal-v4/
+* app/build/intermediates/res/merged/debug/layout-normal-v4/activity_main.xml
+* app/build/intermediates/res/merged/debug/layout-small-v4/
+* app/build/intermediates/res/merged/debug/layout-small-v4/activity_main.xml
+* app/build/intermediates/res/merged/debug/layout-xlarge-v4/
+* app/build/intermediates/res/merged/debug/layout-xlarge-v4/activity_main.xml
+* app/build/intermediates/res/merged/debug/menu/
+* app/build/intermediates/res/merged/debug/menu/main.xml
+* app/build/intermediates/res/merged/debug/values-fr/
+* app/build/intermediates/res/merged/debug/values-fr/values-fr.xml
+* app/build/intermediates/res/merged/debug/values-sw720dp-land-v13/
+* app/build/intermediates/res/merged/debug/values-sw720dp-land-v13/values-sw720dp-land-v13.xml
+* app/build/intermediates/res/merged/debug/values-v11/
+* app/build/intermediates/res/merged/debug/values-v11/values-v11.xml
+* app/build/intermediates/res/merged/debug/values-v14/
+* app/build/intermediates/res/merged/debug/values-v14/values-v14.xml
+* app/build/intermediates/res/merged/debug/values/
+* app/build/intermediates/res/merged/debug/values/values.xml
+* app/build/intermediates/res/resources-debug-androidTest.ap_
+* app/build/intermediates/res/resources-debug.ap_
+* app/build/intermediates/symbols/
+* app/build/intermediates/symbols/debug/
+* app/build/intermediates/symbols/debug/R.txt
+* app/build/intermediates/transforms/
+* app/build/intermediates/transforms/dex/
+* app/build/intermediates/transforms/dex/debug/
+* app/build/intermediates/transforms/dex/debug/folders/
+* app/build/intermediates/transforms/dex/debug/folders/1000/
+* app/build/intermediates/transforms/dex/debug/folders/1000/1f/
+* app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/
+* app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
+* app/build/outputs/
+* app/build/outputs/apk/
+* app/build/outputs/apk/app-debug-unaligned.apk
+* app/build/outputs/apk/app-debug.apk
+* app/build/outputs/logs/
+* app/build/outputs/logs/manifest-merger-debug-report.txt
+* app/lint.xml
+* app/src/
+* app/src/main/
+* app/src/main/AndroidManifest.xml
+* app/src/main/java/
+* app/src/main/java/com/
+* app/src/main/java/com/abcdjdj/
+* app/src/main/java/com/abcdjdj/rootverifier/
+* app/src/main/java/com/abcdjdj/rootverifier/CheckBusyBox.java
+* app/src/main/java/com/abcdjdj/rootverifier/CheckRoot.java
+* app/src/main/java/com/abcdjdj/rootverifier/CheckSuApp.java
+* app/src/main/java/com/abcdjdj/rootverifier/MainActivity.java
+* app/src/main/java/com/abcdjdj/rootverifier/Utils/
+* app/src/main/java/com/abcdjdj/rootverifier/Utils/MiscFunctions.java
+* app/src/main/res/
+* app/src/main/res/drawable-hdpi/
+* app/src/main/res/drawable-hdpi/ic_launcher.png
+* app/src/main/res/drawable-mdpi/
+* app/src/main/res/drawable-mdpi/ic_launcher.png
+* app/src/main/res/drawable-xhdpi/
+* app/src/main/res/drawable-xhdpi/ic_launcher.png
+* app/src/main/res/drawable-xxhdpi/
+* app/src/main/res/drawable-xxhdpi/ic_launcher.png
+* app/src/main/res/drawable/
+* app/src/main/res/drawable/bg.png
+* app/src/main/res/layout-large/
+* app/src/main/res/layout-large/activity_main.xml
+* app/src/main/res/layout-normal/
+* app/src/main/res/layout-normal/activity_main.xml
+* app/src/main/res/layout-small/
+* app/src/main/res/layout-small/activity_main.xml
+* app/src/main/res/layout-xlarge/
+* app/src/main/res/layout-xlarge/activity_main.xml
+* app/src/main/res/menu/
+* app/src/main/res/menu/main.xml
+* app/src/main/res/values-fr/
+* app/src/main/res/values-fr/strings.xml
+* app/src/main/res/values-sw600dp/
+* app/src/main/res/values-sw600dp/dimens.xml
+* app/src/main/res/values-sw720dp-land/
+* app/src/main/res/values-sw720dp-land/dimens.xml
+* app/src/main/res/values-v11/
+* app/src/main/res/values-v11/styles.xml
+* app/src/main/res/values-v14/
+* app/src/main/res/values-v14/styles.xml
+* app/src/main/res/values/
+* app/src/main/res/values/dimens.xml
+* app/src/main/res/values/strings.xml
+* app/src/main/res/values/styles.xml
+* build.gradle
+* build/
+* build/intermediates/
+* build/intermediates/dex-cache/
+* build/intermediates/dex-cache/cache.xml
+* gradle/
+* gradle/wrapper/
+* gradle/wrapper/gradle-wrapper.jar
+* gradle/wrapper/gradle-wrapper.properties
+* gradlew
+* gradlew.bat
+* ic_launcher-web.png
+* proguard-project.txt
+* settings.gradle
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:23.2.1
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app/src/main/AndroidManifest.xml
+* lint.xml => app/lint.xml
+* res/ => app/src/main/res/
+* src/ => app/src/main/java/
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
