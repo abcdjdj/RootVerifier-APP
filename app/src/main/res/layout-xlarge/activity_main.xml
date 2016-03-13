@@ -57,7 +57,6 @@
         android:layout_below="@+id/button1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="92dp"
-        android:freezesText="true"
         android:text="@string/Status"
         android:textColor="@android:color/white"
         android:textSize="43.00dp" />
@@ -71,7 +70,6 @@
         android:layout_marginBottom="54dp"
         android:textColor="@android:color/white"
         android:textSize="43.00dp"
-        android:freezesText="true"
         android:text="@string/su_app_default" />
 
     <TextView
@@ -81,7 +79,6 @@
         android:layout_above="@+id/su_app"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="55dp"
-        android:freezesText="true"
         android:text="@string/busybox_default"
         android:textColor="@android:color/white"
         android:textSize="43.00dp" />

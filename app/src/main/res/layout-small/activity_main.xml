@@ -43,7 +43,6 @@
         android:layout_below="@+id/status"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
-        android:freezesText="true"
         android:text="@string/busybox_default"
         android:textColor="@android:color/white" />
 
@@ -53,7 +52,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/button1"
         android:layout_centerHorizontal="true"
-        android:freezesText="true"
         android:layout_marginTop="29dp"
         android:text="@string/Status"
         android:textColor="@android:color/white" />
@@ -78,7 +76,6 @@
         android:layout_below="@+id/busyboxid"
         android:textColor="@android:color/white"
         android:layout_marginTop="29dp"
-        android:freezesText="true"
         android:text="@string/su_app_default" />
 
     <TextView
