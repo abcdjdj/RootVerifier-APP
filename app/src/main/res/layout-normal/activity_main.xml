@@ -35,7 +35,7 @@
         android:text="@string/Description" />
 
     <TextView
-        android:id="@+id/busyboxid"
+        android:id="@+id/busybox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/status"
@@ -78,7 +78,7 @@
         android:id="@+id/su_app"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/busyboxid"
+        android:layout_below="@+id/busybox"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
         android:gravity="center"

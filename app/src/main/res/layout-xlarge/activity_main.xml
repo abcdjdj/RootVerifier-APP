@@ -70,7 +70,7 @@
         android:text="@string/su_app_default" />
 
     <TextView
-        android:id="@+id/busyboxid"
+        android:id="@+id/busybox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/su_app"

@@ -40,7 +40,7 @@ public class CheckBusyBox implements Runnable {
 	}
 
 	private static void busybox() {
-		TextView z = (TextView) activity.findViewById(R.id.busyboxid);
+		TextView z = (TextView) activity.findViewById(R.id.busybox);
 		char n[] = null;
 		String line = null;
 
