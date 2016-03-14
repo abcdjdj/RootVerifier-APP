@@ -62,7 +62,6 @@ public class MainActivity extends Activity {
 						// class
 		setDeviceName();// Calling the function to display the current device
 						// model on startup of the app.
-		resizeBackground();
 	}
 
 	@Override
@@ -128,37 +127,4 @@ public class MainActivity extends Activity {
 		alert.show();
 	}
 
-	@SuppressLint("NewApi")
-	@SuppressWarnings("deprecation")
-	private void resizeBackground() {
-		int width, height;
-		if (Build.VERSION.SDK_INT >= 13) // Backward compatibility
-		{
-			Display display = getWindowManager().getDefaultDisplay();
-			Point size = new Point();
-			display.getSize(size);
-			width = size.x;
-			height = size.y;
-		} else {
-			width = getWindowManager().getDefaultDisplay().getWidth();
-			height = getWindowManager().getDefaultDisplay().getHeight();
-		}
-
-		if (width >= 512 && height >= 512)
-			return;
-
-		RelativeLayout layout = (RelativeLayout) this
-				.findViewById(R.id.relative_layout);
-		Drawable dr = getResources().getDrawable(R.drawable.bg);
-		Bitmap bitmap = ((BitmapDrawable) dr).getBitmap();
-
-		dr = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(
-				bitmap, width, height, true));
-
-		if (Build.VERSION.SDK_INT >= 16) { // Backward compatibility
-			layout.setBackground(dr);
-		} else {
-			layout.setBackgroundDrawable(dr);
-		}
-	}
 }
