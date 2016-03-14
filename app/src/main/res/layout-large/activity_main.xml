@@ -22,6 +22,7 @@
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="78dp"
+        android:gravity="center"
         android:text="@string/Description"
         android:textColor="@android:color/white"
         android:textSize="26.00dp" />
@@ -45,6 +46,7 @@
         android:layout_below="@+id/status"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="34dp"
+        android:gravity="center"
         android:textColor="@android:color/white"
         android:text="@string/busybox_default"
         android:textSize="25.00dp" />
@@ -56,6 +58,7 @@
         android:layout_below="@+id/button1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="39dp"
+        android:gravity="center"
         android:text="@string/Status"
         android:textColor="@android:color/white"
         android:textSize="25.00dp" />
@@ -79,6 +82,7 @@
         android:layout_below="@+id/busyboxid"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
+        android:gravity="center"
         android:text="@string/su_app_default"
         android:textColor="@android:color/white"
         android:textSize="25.00dp" />
@@ -90,6 +94,7 @@
         android:layout_below="@+id/su_app"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
+        android:gravity="center"
         android:text="@string/dev_name"
         android:textColor="@android:color/white"
         android:textSize="25.00dp" />
