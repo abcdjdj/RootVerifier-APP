@@ -28,7 +28,7 @@
         android:layout_marginBottom="27dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/instructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"

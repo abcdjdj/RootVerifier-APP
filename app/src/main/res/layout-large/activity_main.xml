@@ -19,7 +19,7 @@
         android:id="@+id/toolbar" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/instructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="58dp"
@@ -34,7 +34,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView3"
+        android:layout_below="@+id/instructions"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="66dp"
         android:onClick="@string/Check"
