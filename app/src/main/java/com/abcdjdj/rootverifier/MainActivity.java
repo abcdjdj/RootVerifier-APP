@@ -33,6 +33,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,7 +46,7 @@ import android.widget.RelativeLayout;
  * @version - V1.5
  */
 
-public class MainActivity extends Activity {
+public class MainActivity extends ActionBarActivity {
 
 	static ProgressDialog dialog;
 
@@ -60,6 +62,10 @@ public class MainActivity extends Activity {
 
 		activity = this;// activity is a static field in the Utils.MiscFunctions
 						// class
+
+		Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
+
 		setDeviceName();// Calling the function to display the current device
 						// model on startup of the app.
 	}

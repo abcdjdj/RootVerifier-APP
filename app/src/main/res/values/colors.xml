@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ 
+	<!-- Material Design Red Color -->
+    <item name="colorPrimaryDark" type="color">#d32f2f</item>
+	<item name="colorPrimary" type="color">#f44336</item>
+
+</resources> 

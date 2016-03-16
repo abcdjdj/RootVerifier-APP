@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.abcdjdj.rootverifier"
         minSdkVersion 8
-        targetSdkVersion 20
+        targetSdkVersion 23
     }
 
     buildTypes {
@@ -19,5 +19,5 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:23.2.1'
+    compile 'com.android.support:appcompat-v7:21.0.+'
 }
