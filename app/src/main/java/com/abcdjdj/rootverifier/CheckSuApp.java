@@ -46,9 +46,11 @@ public class CheckSuApp implements Runnable {
 	private static void su_app() {
 		TextView su_app = (TextView) activity.findViewById(R.id.su_app);
 
-		String[] packages = { "eu.chainfire.supersu",
+		final String[] packages = { "eu.chainfire.supersu",
 				"eu.chainfire.supersu.pro", "com.koushikdutta.superuser",
-				"com.noshufou.android.su" };
+				"com.noshufou.android.su", "com.dianxinos.superuser", "com.kingouser.com",
+				"com.mueskor.superuser.su" , "org.masteraxe.superuser", "com.yellowes.su" ,
+				"com.kingroot.kinguser"};
 		PackageManager pm = activity.getPackageManager();
 		int i, l = packages.length;
 		String superuser = null;
