@@ -3,88 +3,99 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fillViewport="true" >
-    
-<RelativeLayout 
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:id="@+id/relative_layout"
-    tools:context=".MainActivity" >
 
-    <android.support.v7.widget.Toolbar
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:background="@color/colorPrimary"
-        android:id="@+id/toolbar" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/relative_layout"
+        android:orientation="vertical"
+        tools:context=".MainActivity" >
 
+        <android.support.v7.widget.Toolbar
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimary"
+            android:id="@+id/toolbar" />
 
-    <TextView
-        android:id="@+id/status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/Status"
-        android:layout_above="@+id/busybox"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="27dp" />
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Welcome"
+            android:textSize="25sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp" />
 
-    <TextView
-        android:id="@+id/instructions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/Description"
-        android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="26dp" />
+        <TextView
+            android:id="@+id/instructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30sp"
+            android:layout_marginRight="4sp"
+            android:layout_marginLeft="4sp"
+            android:gravity="center"
+            android:text="@string/Description"
+            android:textSize="18sp" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@string/Check"
+            android:text="@string/Check"
+            android:layout_marginTop="30sp"
+            android:textSize="20sp"
+            android:padding="15sp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/busybox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/busybox_default"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25sp"
+            android:layout_marginRight="4sp"
+            android:layout_marginLeft="4sp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="@string/Status"
+            android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="@string/Check"
-        android:text="@string/Check"
-        android:layout_above="@+id/status"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp" />
+        <TextView
+            android:id="@+id/busybox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25sp"
+            android:layout_marginRight="4sp"
+            android:layout_marginLeft="4sp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/busybox_default"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Welcome"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_below="@+id/toolbar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp" />
+        <TextView
+            android:id="@+id/su_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25sp"
+            android:layout_marginRight="4sp"
+            android:layout_marginLeft="4sp"
+            android:gravity="center"
+            android:text="@string/su_app_default"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/devicemodel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:text="@string/dev_name"
-        android:layout_below="@+id/su_app"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:id="@+id/devicemodel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginRight="4sp"
+            android:layout_marginLeft="4sp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/dev_name"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/su_app"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:gravity="center"
-        android:text="@string/su_app_default"
-        android:layout_below="@+id/busybox"
-        android:layout_centerHorizontal="true" />
-
-</RelativeLayout>
+    </LinearLayout>
 </ScrollView>
