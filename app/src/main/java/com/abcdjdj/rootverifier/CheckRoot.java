@@ -64,7 +64,7 @@ public class CheckRoot implements Runnable {
 				PrintWriter pw = new PrintWriter(process.getOutputStream(),
 						true);
 
-				// CREATING A DUMMY FILE in /system called abc.txt
+				// CREATING A DUMMY FILE in / called abc.txt
 				pw.println("mount -o remount,rw /");
 				pw.println("cd /");
 				pw.println("echo \"ABC\" > abc.txt");
