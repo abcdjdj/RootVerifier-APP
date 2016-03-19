@@ -92,14 +92,14 @@ public class CheckSuApp implements Runnable {
 			}
 			if (!flag) {
 				line = activity.getString(R.string.app_unknown);
-                setText(su_app, line);
+                                setText(su_app, line);
 			}
 			else {
-                setText(su_app, activity.getString(R.string.su_app) + " " +  line);
-            }
+                               setText(su_app, activity.getString(R.string.su_app) + " " +  line);
+                        }
 		} catch (Exception e) {
 			line =  activity.getString(R.string.app_unknown);
-            setText(su_app, line);
+                        setText(su_app, line);
 		}
 	}
 
