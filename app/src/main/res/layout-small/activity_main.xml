@@ -41,7 +41,7 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@string/Check"
+            android:onClick="Check"
             android:text="@string/Check"
             android:layout_marginTop="30sp"
             android:textSize="18sp"
