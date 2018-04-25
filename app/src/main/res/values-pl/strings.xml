@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Weryfikator Roota</string>
+    
+    <string name="Status">STATUS ROOT: JESZCZE NIE SPRAWDZONO</string>
+    <string name="rooted">URZĄDZENIE JEST ZROOTOWANE</string>
+    <string name="not_rooted">NIE ZROOTOWANO</string>
+    <string name="permission_denied">UPRAWNIENIA ROOTA NIE ZOSTAŁY PRZYZNANE LUB BRAKUJE APLIKACJI SUPERUSER</string>    
+    <string name="alt_method">Sprawdzanie alternatywną metodą</string>
+    <string name="busybox_default">BUSYBOX: JESZCZE NIE SPRAWDZONO</string>
+    <string name="yes_busybox">ZAINSTALOWANY BUSYBOX :</string> 
+    <string name="no_busybox">BUSYBOX NIE ZAINSTALOWANY LUB NIE POŁĄCZONY</string>  
+    <string name="su_app_default">APLIKACJA SUPERUSER : JESZCZE NIE SPRAWDZONO</string>
+    <string name="su_app">APLIKACJA SUPERUSER :</string>  
+    
+    <string name="app_unknown">APLIKACJA SUPERUSER: Nieznana</string>  
+    <string name="verifying">Sprawdzanie roota</string>
+    <string name="wait">Sprawdzanie, proszę czekać..</string>
+    <string name="check_complete">Sprawdzanie zakończone</string> 
+    
+    <string name="Welcome">Witamy!</string>
+    <string name="Description">Żeby zweryfikować uprawnienia root, proszę dotknąć przycisku Sprawdź.</string>
+    <string name="rate">Oceń w Sklepie Play</string>
+    <string name="about">O</string>
+    <string name="dev_name">URZĄDZENIE :</string>
+    <string name="exit">Wyjdź</string>
+    <string name="Check">Sprawdź</string>
+  
+</resources>
