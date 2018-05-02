@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Root Verifier</string>
+    
+    <string name="Status">ROOT-STATUS : IKKE SJEKKET ENNÅ</string>
+    <string name="rooted">ENHETEN ER ROOTET</string>
+    <string name="not_rooted">IKKE ROOTET</string>
+    <string name="permission_denied">ROOT-TILLATELSE ER IKKE GITT, ELLER SÅ MANGLER SUPERUSER-APPEN</string>    
+    <string name="alt_method">Sjekker med en alternativ metode</string>
+    <string name="busybox_default">BUSYBOX : IKKE SJEKKET ENNÅ</string>
+    <string name="yes_busybox">BUSYBOX ER INSTALLERT :</string> 
+    <string name="no_busybox">BUSYBOX ER ENTEN IKKE INSTALLERT ELLER IKKE SYSTEMTILKNYTTET</string>  
+    <string name="su_app_default">SUPERUSER-APP : IKKE SJEKKET ENNÅ</string>
+    <string name="su_app">SUPERUSER-APP :</string>  
+    
+    <string name="app_unknown">SUPERUSER-APP : Unknown</string>  
+    <string name="verifying">Verifiserer rootingen …</string>
+    <string name="wait">Sjekker, vennligst vent …</string>
+    <string name="check_complete">Sjekken er fullført</string> 
+    
+    <string name="Welcome">Velkommen!</string>
+    <string name="Description">For å verifisere root-tilgangen, vennligst klikk på Sjekk-knappen.</string>
+    <string name="rate">Vurder på Play Store</string>
+    <string name="about">Om</string>
+    <string name="dev_name">ENHET :</string>
+    <string name="exit">Avslutt</string>
+    <string name="Check">Sjekk</string>
+  
+</resources>
