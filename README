@@ -1,13 +1,13 @@
 ROOT VERIFIER
 
-NOTE :- THIS APP DOES NOT ROOT YOUR DEVICE. IT SIMPLY CHECKS IF IT IS ROOTED.
+PLEASE NOTE: THIS APP DOES NOT ROOT YOUR DEVICE. IT SIMPLY CHECKS IF IT IS ROOTED.
 
 This application is a simple app which checks if your Android device has Superuser access ("root") or not. It is a very handy app for those who are new to the world of Android modding. By simply clicking on the check button, users can verify if their Android device is properly rooted or not. Also, users can check if they have busybox installed on their Android device along with the version of busybox.
 
-To know more about "Rooting" in Android please check this - http://google.about.com/od/socialtoolsfromgoogle/a/root-android-decision.htm
+To know more about "Rooting" in Android please read this - https://google.about.com/od/socialtoolsfromgoogle/a/root-android-decision.htm
 
-To know more about busybox, kindly check this - http://en.wikipedia.org/wiki/BusyBox
+To know more about busybox, kindly read this - https://en.wikipedia.org/wiki/BusyBox
 
-XDA Page - http://forum.xda-developers.com/showthread.php?t=2249035
+XDA Page - https://forum.xda-developers.com/showthread.php?t=2249035
 
 F-Droid page - https://f-droid.org/repository/browse/?fdid=com.abcdjdj.rootverifier
